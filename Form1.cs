@@ -58,6 +58,7 @@ namespace LibraryProject
                     Price = int.Parse(BookPriceTb.Text),
                     CatId = int.Parse(BookCategoryIdTb.Text),
                     Pubid = int.Parse(BookPublisherIdTb.Text)
+
                 };
 
                 context.Books.Add(book);
