@@ -5,11 +5,11 @@ namespace LibraryProject.Entities;
 
 public partial class Copy
 {
-    public int Id { get; set; }
+    public int CopyId { get; set; }
 
     public int? CopyNumber { get; set; }
 
-    public string? Availability { get; set; }
+    public string? Available { get; set; }
 
     public int? BorrowingPeriod { get; set; }
 

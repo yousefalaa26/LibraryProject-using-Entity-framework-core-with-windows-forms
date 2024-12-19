@@ -5,13 +5,11 @@ namespace LibraryProject.Entities;
 
 public partial class Publisher
 {
-    public int Id { get; set; }
+    public int PubId { get; set; }
 
-    public string? Email { get; set; }
+    public string? PubName { get; set; }
 
-    public string? Name { get; set; }
-
-    public string? Address { get; set; }
+    public string? PubAddress { get; set; }
 
     public virtual ICollection<Book> Books { get; set; } = new List<Book>();
 }

@@ -1,26 +1,29 @@
-﻿namespace LibraryProject.Entities;
+﻿using System;
+using System.Collections.Generic;
+
+namespace LibraryProject.Entities;
 
 public partial class Book
 {
     public int Isbn { get; set; }
 
-    public string? Title { get; set; }
+    public string Title { get; set; } = null!;
 
-    public int? Edition { get; set; }
+    public string? Edition { get; set; }
 
-    public DateOnly? Yearofpublication { get; set; }
+    public DateOnly? YearOfPublication { get; set; }
 
     public int? Price { get; set; }
 
     public int? CatId { get; set; }
 
-    public int? Pubid { get; set; }
-
-    public virtual ICollection<Authority> Authorities { get; set; } = new List<Authority>();
+    public int? PubId { get; set; }
 
     public virtual Category? Cat { get; set; }
 
     public virtual ICollection<Copy> Copies { get; set; } = new List<Copy>();
 
     public virtual Publisher? Pub { get; set; }
+
+    public virtual ICollection<Author> Authors { get; set; } = new List<Author>();
 }

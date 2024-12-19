@@ -1,3 +1,4 @@
+//using LibraryProject.Entities;
 using LibraryProject.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -5,12 +6,12 @@ namespace LibraryProject
 {
     public partial class Form1 : Form
     {
-        private LibraryProjectContext context;
+        private LibraryContext context;
 
         public Form1()
         {
             InitializeComponent();
-            context = new LibraryProjectContext();
+            context = new LibraryContext();
         }
 
         //------------------------------------------Books-------------------------------------------//
@@ -26,9 +27,9 @@ namespace LibraryProject
             var authors = context.Authors.ToList();
             dataGridView2.DataSource = authors;
         }
-        private void loadBorroweres()
+        private void loadBorrowers()
         {
-            var Borroweres = context.Borroweres.ToList();
+            var Borroweres = context.Borrowers.ToList();
             dataGridView3.DataSource = Borroweres;
         }
 
@@ -36,7 +37,7 @@ namespace LibraryProject
         {
             loadBooks();
             loadAuthors();
-            loadBorroweres();
+            loadBorrowers();
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -50,11 +51,11 @@ namespace LibraryProject
                 {
                     BookISBNTb.Text = book.Isbn.ToString();
                     BookTitleTb.Text = book.Title;
-                    BookEditionTb.Text = book.Edition.ToString();
-                    BookYearTb.Text = book.Yearofpublication.ToString();
+                    BookEditionTb.Text = book.Edition;
+                    BookYearTb.Text = book.YearOfPublication.ToString();
                     BookPriceTb.Text = book.Price.ToString();
                     BookCategoryIdTb.Text = book.CatId.ToString();
-                    BookPublisherIdTb.Text = book.Pubid.ToString();
+                    BookPublisherIdTb.Text = book.PubId.ToString();
                 }
             }
         }
@@ -67,11 +68,11 @@ namespace LibraryProject
                 {
                     Isbn = int.Parse(BookISBNTb.Text),
                     Title = BookTitleTb.Text,
-                    Edition = int.Parse(BookEditionTb.Text),
-                    Yearofpublication = DateOnly.Parse(BookYearTb.Text),
+                    Edition = BookEditionTb.Text,
+                    YearOfPublication = DateOnly.Parse(BookYearTb.Text),
                     Price = int.Parse(BookPriceTb.Text),
                     CatId = int.Parse(BookCategoryIdTb.Text),
-                    Pubid = int.Parse(BookPublisherIdTb.Text)
+                    PubId = int.Parse(BookPublisherIdTb.Text)
 
                 };
 
@@ -93,11 +94,11 @@ namespace LibraryProject
 
                 book.Isbn = int.Parse(BookISBNTb.Text);
                 book.Title = BookTitleTb.Text;
-                book.Edition = int.Parse(BookEditionTb.Text);
-                book.Yearofpublication = DateOnly.Parse(BookYearTb.Text);
+                book.Edition = BookEditionTb.Text;
+                book.YearOfPublication = DateOnly.Parse(BookYearTb.Text);
                 book.Price = int.Parse(BookPriceTb.Text);
                 book.CatId = int.Parse(BookCategoryIdTb.Text);
-                book.Pubid = int.Parse(BookPublisherIdTb.Text);
+                book.PubId = int.Parse(BookPublisherIdTb.Text);
 
                 context.SaveChanges();
                 loadBooks();
@@ -128,14 +129,14 @@ namespace LibraryProject
         private void dataGridView2_SelectionChanged(object sender, EventArgs e)
         {
             var author = context.Authors.
-                SingleOrDefault(x => x.Id == (int)dataGridView2.CurrentRow.Cells[0].Value);
+                SingleOrDefault(x => x.AuId == (int)dataGridView2.CurrentRow.Cells[0].Value);
 
             if (author != null)
             {
-                AuthorIdTb.Text = author.Id.ToString();
-                AuthorFirstTb.Text = author.Firstname;
-                AuthorLastTb.Text = author.Lastname;
-                AuthorEmailTb.Text = author.Email;
+                AuthorIdTb.Text = author.AuId.ToString();
+                AuthorFirstTb.Text = author.FirstName;
+                AuthorMidTb.Text = author.MidName;
+                AuthorLastTb.Text = author.LastName;
             }
         }
 
@@ -145,10 +146,10 @@ namespace LibraryProject
             {
                 Author author = new Author()
                 {
-                    Id = int.Parse(AuthorIdTb.Text),
-                    Firstname = AuthorFirstTb.Text,
-                    Lastname = AuthorLastTb.Text,
-                    Email = AuthorEmailTb.Text,
+                    AuId = int.Parse(AuthorIdTb.Text),
+                    FirstName = AuthorFirstTb.Text,
+                    MidName = AuthorMidTb.Text,
+                    LastName = AuthorLastTb.Text
                 };
 
                 context.Authors.Add(author);
@@ -167,12 +168,13 @@ namespace LibraryProject
             try
             {
                 var author = context.Authors.
-                    Single(x => x.Id == (int)dataGridView2.CurrentRow.Cells[0].Value);
+                    Single(x => x.AuId == (int)dataGridView2.CurrentRow.Cells[0].Value);
 
-                author.Id = int.Parse(AuthorIdTb.Text);
-                author.Firstname = AuthorFirstTb.Text;
-                author.Lastname = AuthorLastTb.Text;
-                author.Email = AuthorEmailTb.Text;
+                author.AuId = int.Parse(AuthorIdTb.Text);
+                author.FirstName = AuthorFirstTb.Text;
+                author.MidName = AuthorMidTb.Text;
+                author.LastName = AuthorLastTb.Text;
+
 
                 context.SaveChanges();
                 loadAuthors();
@@ -188,7 +190,7 @@ namespace LibraryProject
             try
             {
                 var author = context.Authors.
-                    Single(x => x.Id == (int)dataGridView2.CurrentRow.Cells[0].Value);
+                    Single(x => x.AuId == (int)dataGridView2.CurrentRow.Cells[0].Value);
 
                 context.Authors.Remove(author);
                 context.SaveChanges();
@@ -200,18 +202,17 @@ namespace LibraryProject
                 MessageBox.Show("Error removing author: " + ex.Message);
             }
         }
-        //---------------------------------------Borroweres-------------------------------------//
+        //---------------------------------------Borrowers-------------------------------------//
         private void dataGridView3_SelectionChanged(object sender, EventArgs e)
         {
-            var borrowere = context.Borroweres.
-                SingleOrDefault(x => x.Id == (int)dataGridView3.CurrentRow.Cells[0].Value);
+            var borrower= context.Borrowers.
+                SingleOrDefault(x => x.BrrId == (int)dataGridView3.CurrentRow.Cells[0].Value);
 
-            if (borrowere != null)
+            if (borrower != null)
             {
-                BorrowerePhoneTb.Text = borrowere.PhoneNumber;
-                BorrowereFirstTb.Text = borrowere.FirstName;
-                BorrowereLastTb.Text = borrowere.LastName;
-                BorrowereAddressTb.Text = borrowere.Address;
+                BorrowerIdTb.Text = borrower.BrrId.ToString();
+                BorrowerNameTb.Text = borrower.BrrName;
+                BorrowereAddressTb.Text = borrower.BrrAddress;
             }
         }
 
@@ -219,22 +220,21 @@ namespace LibraryProject
         {
             try
             {
-                Borrowere borrowere = new Borrowere()
+                Borrower borrower = new Borrower()
                 {
-                    PhoneNumber = BorrowerePhoneTb.Text,
-                    FirstName = BorrowereFirstTb.Text,
-                    LastName = BorrowereLastTb.Text,
-                    Address = BorrowereAddressTb.Text,
+                    BrrId = int.Parse(BorrowerIdTb.Text),
+                    BrrName = BorrowerNameTb.Text,
+                    BrrAddress = BorrowereAddressTb.Text,
                 };
 
-                context.Borroweres.Add(borrowere);
+                context.Borrowers.Add(borrower);
                 context.SaveChanges();
 
-                loadBorroweres();
+                loadBorrowers();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error adding Borrowere: " + ex.Message);
+                MessageBox.Show("Error adding Borrower: " + ex.Message);
             }
         }
 
@@ -242,21 +242,19 @@ namespace LibraryProject
         {
             try
             {
-                var borrowere = context.Borroweres.
-                    Single(x => x.Id == (int)dataGridView3.CurrentRow.Cells[0].Value);
+                var borrowere = context.Borrowers.
+                    Single(x => x.BrrId == (int)dataGridView3.CurrentRow.Cells[0].Value);
 
-
-                borrowere.PhoneNumber = BorrowerePhoneTb.Text;
-                borrowere.FirstName = BorrowereFirstTb.Text;
-                borrowere.LastName = BorrowereLastTb.Text;
-                borrowere.Address = BorrowereAddressTb.Text;
+                borrowere.BrrId = int.Parse(BorrowerIdTb.Text);
+                borrowere.BrrName = BorrowerNameTb.Text;
+                borrowere.BrrAddress = BorrowereAddressTb.Text;
 
                 context.SaveChanges();
-                loadBorroweres();
+                loadBorrowers();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error updating author: " + ex.Message);
+                MessageBox.Show("Error updating borrower: " + ex.Message);
             }
         }
 
@@ -264,17 +262,17 @@ namespace LibraryProject
         {
             try
             {
-                var borrowere = context.Borroweres.
-                    Single(x => x.Id == (int)dataGridView3.CurrentRow.Cells[0].Value);
+                var borrower = context.Borrowers.
+                    Single(x => x.BrrId == (int)dataGridView3.CurrentRow.Cells[0].Value);
 
-                context.Borroweres.Remove(borrowere);
+                context.Borrowers.Remove(borrower);
                 context.SaveChanges();
 
-                loadBorroweres();
+                loadBorrowers();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error removing borrowere: " + ex.Message);
+                MessageBox.Show("Error removing borrower: " + ex.Message);
             }
         }
     }
