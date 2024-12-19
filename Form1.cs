@@ -26,11 +26,17 @@ namespace LibraryProject
             var authors = context.Authors.ToList();
             dataGridView2.DataSource = authors;
         }
+        private void loadBorroweres()
+        {
+            var Borroweres = context.Borroweres.ToList();
+            dataGridView3.DataSource = Borroweres;
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             loadBooks();
             loadAuthors();
+            loadBorroweres();
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -168,6 +174,7 @@ namespace LibraryProject
                 author.Lastname = AuthorLastTb.Text;
                 author.Email = AuthorEmailTb.Text;
 
+                context.SaveChanges();
                 loadAuthors();
             }
             catch (Exception ex)
@@ -188,9 +195,86 @@ namespace LibraryProject
 
                 loadAuthors();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error removing author: " + ex.Message);
+            }
+        }
+        //---------------------------------------Borroweres-------------------------------------//
+        private void dataGridView3_SelectionChanged(object sender, EventArgs e)
+        {
+            var borrowere = context.Borroweres.
+                SingleOrDefault(x => x.Id == (int)dataGridView3.CurrentRow.Cells[0].Value);
+
+            if (borrowere != null)
+            {
+                BorrowerePhoneTb.Text = borrowere.PhoneNumber;
+                BorrowereFirstTb.Text = borrowere.FirstName;
+                BorrowereLastTb.Text = borrowere.LastName;
+                BorrowereAddressTb.Text = borrowere.Address;
+            }
+        }
+
+        private void BorrowereAddBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Borrowere borrowere = new Borrowere()
+                {
+                    PhoneNumber = BorrowerePhoneTb.Text,
+                    FirstName = BorrowereFirstTb.Text,
+                    LastName = BorrowereLastTb.Text,
+                    Address = BorrowereAddressTb.Text,
+                };
+
+                context.Borroweres.Add(borrowere);
+                context.SaveChanges();
+
+                loadBorroweres();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding Borrowere: " + ex.Message);
+            }
+        }
+
+        private void BorrowereUpdateBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var borrowere = context.Borroweres.
+                    Single(x => x.Id == (int)dataGridView3.CurrentRow.Cells[0].Value);
+
+
+                borrowere.PhoneNumber = BorrowerePhoneTb.Text;
+                borrowere.FirstName = BorrowereFirstTb.Text;
+                borrowere.LastName = BorrowereLastTb.Text;
+                borrowere.Address = BorrowereAddressTb.Text;
+
+                context.SaveChanges();
+                loadBorroweres();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating author: " + ex.Message);
+            }
+        }
+
+        private void BorrowereRemoveBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var borrowere = context.Borroweres.
+                    Single(x => x.Id == (int)dataGridView3.CurrentRow.Cells[0].Value);
+
+                context.Borroweres.Remove(borrowere);
+                context.SaveChanges();
+
+                loadBorroweres();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error removing borrowere: " + ex.Message);
             }
         }
     }

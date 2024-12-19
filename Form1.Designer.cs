@@ -76,10 +76,30 @@
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             authorBindingSource = new BindingSource(components);
             tabPage3 = new TabPage();
+            BorrowereRemoveBtn = new Button();
+            BorrowereUpdateBtn = new Button();
+            BorrowereAddBtn = new Button();
+            label16 = new Label();
+            label15 = new Label();
+            label14 = new Label();
+            label13 = new Label();
+            BorrowereAddressTb = new TextBox();
+            BorrowereLastTb = new TextBox();
+            BorrowereFirstTb = new TextBox();
+            BorrowerePhoneTb = new TextBox();
+            dataGridView3 = new DataGridView();
+            idDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            firstNameDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            lastNameDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            borrowereBindingSource = new BindingSource(components);
             tabPage4 = new TabPage();
             tabPage5 = new TabPage();
             tabPage6 = new TabPage();
-            AuthorNameColumn = new DataGridViewTextBoxColumn();
+            tabPage7 = new TabPage();
+            tabPage8 = new TabPage();
+            tabPage9 = new TabPage();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -87,6 +107,9 @@
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)authorBindingSource).BeginInit();
+            tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)borrowereBindingSource).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -97,6 +120,9 @@
             tabControl1.Controls.Add(tabPage4);
             tabControl1.Controls.Add(tabPage5);
             tabControl1.Controls.Add(tabPage6);
+            tabControl1.Controls.Add(tabPage7);
+            tabControl1.Controls.Add(tabPage8);
+            tabControl1.Controls.Add(tabPage9);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
@@ -134,9 +160,9 @@
             // 
             // BookAddBtn
             // 
-            BookAddBtn.Location = new Point(925, 595);
+            BookAddBtn.Location = new Point(909, 483);
             BookAddBtn.Name = "BookAddBtn";
-            BookAddBtn.Size = new Size(173, 33);
+            BookAddBtn.Size = new Size(196, 39);
             BookAddBtn.TabIndex = 20;
             BookAddBtn.Text = "Add";
             BookAddBtn.UseVisualStyleBackColor = true;
@@ -144,9 +170,9 @@
             // 
             // BookUpdateBtn
             // 
-            BookUpdateBtn.Location = new Point(925, 556);
+            BookUpdateBtn.Location = new Point(909, 539);
             BookUpdateBtn.Name = "BookUpdateBtn";
-            BookUpdateBtn.Size = new Size(173, 33);
+            BookUpdateBtn.Size = new Size(196, 39);
             BookUpdateBtn.TabIndex = 19;
             BookUpdateBtn.Text = "Update";
             BookUpdateBtn.UseVisualStyleBackColor = true;
@@ -154,9 +180,9 @@
             // 
             // BookRemoveBtn
             // 
-            BookRemoveBtn.Location = new Point(925, 517);
+            BookRemoveBtn.Location = new Point(909, 595);
             BookRemoveBtn.Name = "BookRemoveBtn";
-            BookRemoveBtn.Size = new Size(173, 33);
+            BookRemoveBtn.Size = new Size(196, 39);
             BookRemoveBtn.TabIndex = 18;
             BookRemoveBtn.Text = "Remove";
             BookRemoveBtn.UseVisualStyleBackColor = true;
@@ -165,7 +191,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(865, 465);
+            label7.Location = new Point(866, 435);
             label7.Name = "label7";
             label7.Size = new Size(86, 20);
             label7.TabIndex = 17;
@@ -174,7 +200,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(865, 401);
+            label6.Location = new Point(866, 370);
             label6.Name = "label6";
             label6.Size = new Size(86, 20);
             label6.TabIndex = 16;
@@ -183,7 +209,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(877, 327);
+            label5.Location = new Point(878, 306);
             label5.Name = "label5";
             label5.Size = new Size(41, 20);
             label5.TabIndex = 15;
@@ -192,7 +218,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(865, 278);
+            label4.Location = new Point(878, 242);
             label4.Name = "label4";
             label4.Size = new Size(115, 20);
             label4.TabIndex = 14;
@@ -201,7 +227,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(877, 226);
+            label3.Location = new Point(878, 182);
             label3.Name = "label3";
             label3.Size = new Size(56, 20);
             label3.TabIndex = 13;
@@ -210,7 +236,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(889, 146);
+            label2.Location = new Point(890, 113);
             label2.Name = "label2";
             label2.Size = new Size(38, 20);
             label2.TabIndex = 12;
@@ -219,7 +245,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(877, 67);
+            label1.Location = new Point(878, 46);
             label1.Name = "label1";
             label1.Size = new Size(41, 20);
             label1.TabIndex = 11;
@@ -228,49 +254,49 @@
             // BookYearTb
             // 
             BookYearTb.Format = DateTimePickerFormat.Short;
-            BookYearTb.Location = new Point(998, 273);
+            BookYearTb.Location = new Point(1011, 237);
             BookYearTb.Name = "BookYearTb";
             BookYearTb.Size = new Size(123, 27);
             BookYearTb.TabIndex = 10;
             // 
             // BookPublisherIdTb
             // 
-            BookPublisherIdTb.Location = new Point(950, 462);
+            BookPublisherIdTb.Location = new Point(951, 432);
             BookPublisherIdTb.Name = "BookPublisherIdTb";
             BookPublisherIdTb.Size = new Size(183, 27);
             BookPublisherIdTb.TabIndex = 9;
             // 
             // BookCategoryIdTb
             // 
-            BookCategoryIdTb.Location = new Point(950, 398);
+            BookCategoryIdTb.Location = new Point(951, 367);
             BookCategoryIdTb.Name = "BookCategoryIdTb";
             BookCategoryIdTb.Size = new Size(183, 27);
             BookCategoryIdTb.TabIndex = 8;
             // 
             // BookPriceTb
             // 
-            BookPriceTb.Location = new Point(950, 320);
+            BookPriceTb.Location = new Point(951, 299);
             BookPriceTb.Name = "BookPriceTb";
             BookPriceTb.Size = new Size(183, 27);
             BookPriceTb.TabIndex = 7;
             // 
             // BookEditionTb
             // 
-            BookEditionTb.Location = new Point(950, 219);
+            BookEditionTb.Location = new Point(951, 175);
             BookEditionTb.Name = "BookEditionTb";
             BookEditionTb.Size = new Size(183, 27);
             BookEditionTb.TabIndex = 6;
             // 
             // BookTitleTb
             // 
-            BookTitleTb.Location = new Point(950, 139);
+            BookTitleTb.Location = new Point(951, 106);
             BookTitleTb.Name = "BookTitleTb";
             BookTitleTb.Size = new Size(183, 27);
             BookTitleTb.TabIndex = 5;
             // 
             // BookISBNTb
             // 
-            BookISBNTb.Location = new Point(950, 64);
+            BookISBNTb.Location = new Point(951, 43);
             BookISBNTb.Name = "BookISBNTb";
             BookISBNTb.Size = new Size(183, 27);
             BookISBNTb.TabIndex = 4;
@@ -279,7 +305,7 @@
             // 
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { isbnDataGridViewTextBoxColumn, titleDataGridViewTextBoxColumn, editionDataGridViewTextBoxColumn, yearofpublicationDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, catIdDataGridViewTextBoxColumn, pubidDataGridViewTextBoxColumn, AuthorNameColumn });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { isbnDataGridViewTextBoxColumn, titleDataGridViewTextBoxColumn, editionDataGridViewTextBoxColumn, yearofpublicationDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, catIdDataGridViewTextBoxColumn, pubidDataGridViewTextBoxColumn });
             dataGridView1.DataSource = bookBindingSource;
             dataGridView1.Dock = DockStyle.Left;
             dataGridView1.Location = new Point(3, 3);
@@ -517,13 +543,177 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(BorrowereRemoveBtn);
+            tabPage3.Controls.Add(BorrowereUpdateBtn);
+            tabPage3.Controls.Add(BorrowereAddBtn);
+            tabPage3.Controls.Add(label16);
+            tabPage3.Controls.Add(label15);
+            tabPage3.Controls.Add(label14);
+            tabPage3.Controls.Add(label13);
+            tabPage3.Controls.Add(BorrowereAddressTb);
+            tabPage3.Controls.Add(BorrowereLastTb);
+            tabPage3.Controls.Add(BorrowereFirstTb);
+            tabPage3.Controls.Add(BorrowerePhoneTb);
+            tabPage3.Controls.Add(dataGridView3);
             tabPage3.Location = new Point(4, 29);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
             tabPage3.Size = new Size(1154, 650);
             tabPage3.TabIndex = 2;
-            tabPage3.Text = "Customers";
+            tabPage3.Text = "Borrowere";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // BorrowereRemoveBtn
+            // 
+            BorrowereRemoveBtn.Location = new Point(865, 584);
+            BorrowereRemoveBtn.Name = "BorrowereRemoveBtn";
+            BorrowereRemoveBtn.Size = new Size(201, 39);
+            BorrowereRemoveBtn.TabIndex = 13;
+            BorrowereRemoveBtn.Text = "Remove";
+            BorrowereRemoveBtn.UseVisualStyleBackColor = true;
+            BorrowereRemoveBtn.Click += BorrowereRemoveBtn_Click;
+            // 
+            // BorrowereUpdateBtn
+            // 
+            BorrowereUpdateBtn.Location = new Point(865, 519);
+            BorrowereUpdateBtn.Name = "BorrowereUpdateBtn";
+            BorrowereUpdateBtn.Size = new Size(201, 39);
+            BorrowereUpdateBtn.TabIndex = 12;
+            BorrowereUpdateBtn.Text = "Update";
+            BorrowereUpdateBtn.UseVisualStyleBackColor = true;
+            BorrowereUpdateBtn.Click += BorrowereUpdateBtn_Click;
+            // 
+            // BorrowereAddBtn
+            // 
+            BorrowereAddBtn.Location = new Point(865, 459);
+            BorrowereAddBtn.Name = "BorrowereAddBtn";
+            BorrowereAddBtn.Size = new Size(201, 39);
+            BorrowereAddBtn.TabIndex = 11;
+            BorrowereAddBtn.Text = "Add";
+            BorrowereAddBtn.UseVisualStyleBackColor = true;
+            BorrowereAddBtn.Click += BorrowereAddBtn_Click;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(808, 367);
+            label16.Name = "label16";
+            label16.Size = new Size(62, 20);
+            label16.TabIndex = 10;
+            label16.Text = "Address";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(794, 277);
+            label15.Name = "label15";
+            label15.Size = new Size(76, 20);
+            label15.TabIndex = 9;
+            label15.Text = "Last name";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(789, 191);
+            label14.Name = "label14";
+            label14.Size = new Size(77, 20);
+            label14.TabIndex = 8;
+            label14.Text = "First name";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(776, 95);
+            label13.Name = "label13";
+            label13.Size = new Size(105, 20);
+            label13.TabIndex = 7;
+            label13.Text = "Phone number";
+            // 
+            // BorrowereAddressTb
+            // 
+            BorrowereAddressTb.Location = new Point(887, 360);
+            BorrowereAddressTb.Name = "BorrowereAddressTb";
+            BorrowereAddressTb.Size = new Size(222, 27);
+            BorrowereAddressTb.TabIndex = 5;
+            // 
+            // BorrowereLastTb
+            // 
+            BorrowereLastTb.Location = new Point(887, 274);
+            BorrowereLastTb.Name = "BorrowereLastTb";
+            BorrowereLastTb.Size = new Size(222, 27);
+            BorrowereLastTb.TabIndex = 4;
+            // 
+            // BorrowereFirstTb
+            // 
+            BorrowereFirstTb.Location = new Point(887, 188);
+            BorrowereFirstTb.Name = "BorrowereFirstTb";
+            BorrowereFirstTb.Size = new Size(222, 27);
+            BorrowereFirstTb.TabIndex = 3;
+            // 
+            // BorrowerePhoneTb
+            // 
+            BorrowerePhoneTb.Location = new Point(887, 92);
+            BorrowerePhoneTb.Name = "BorrowerePhoneTb";
+            BorrowerePhoneTb.Size = new Size(222, 27);
+            BorrowerePhoneTb.TabIndex = 2;
+            // 
+            // dataGridView3
+            // 
+            dataGridView3.AutoGenerateColumns = false;
+            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView3.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn1, phoneNumberDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn1, lastNameDataGridViewTextBoxColumn1, addressDataGridViewTextBoxColumn });
+            dataGridView3.DataSource = borrowereBindingSource;
+            dataGridView3.Dock = DockStyle.Left;
+            dataGridView3.Location = new Point(3, 3);
+            dataGridView3.Name = "dataGridView3";
+            dataGridView3.RowHeadersWidth = 51;
+            dataGridView3.Size = new Size(752, 644);
+            dataGridView3.TabIndex = 0;
+            dataGridView3.SelectionChanged += dataGridView3_SelectionChanged;
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            idDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            idDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
+            phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
+            phoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            phoneNumberDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // firstNameDataGridViewTextBoxColumn1
+            // 
+            firstNameDataGridViewTextBoxColumn1.DataPropertyName = "FirstName";
+            firstNameDataGridViewTextBoxColumn1.HeaderText = "FirstName";
+            firstNameDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            firstNameDataGridViewTextBoxColumn1.Name = "firstNameDataGridViewTextBoxColumn1";
+            firstNameDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // lastNameDataGridViewTextBoxColumn1
+            // 
+            lastNameDataGridViewTextBoxColumn1.DataPropertyName = "LastName";
+            lastNameDataGridViewTextBoxColumn1.HeaderText = "LastName";
+            lastNameDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            lastNameDataGridViewTextBoxColumn1.Name = "lastNameDataGridViewTextBoxColumn1";
+            lastNameDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            addressDataGridViewTextBoxColumn.MinimumWidth = 6;
+            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            addressDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // borrowereBindingSource
+            // 
+            borrowereBindingSource.DataSource = typeof(Entities.Borrowere);
             // 
             // tabPage4
             // 
@@ -532,7 +722,7 @@
             tabPage4.Padding = new Padding(3);
             tabPage4.Size = new Size(1154, 650);
             tabPage4.TabIndex = 3;
-            tabPage4.Text = "tabPage4";
+            tabPage4.Text = "Authority";
             tabPage4.UseVisualStyleBackColor = true;
             // 
             // tabPage5
@@ -542,7 +732,7 @@
             tabPage5.Padding = new Padding(3);
             tabPage5.Size = new Size(1154, 650);
             tabPage5.TabIndex = 4;
-            tabPage5.Text = "tabPage5";
+            tabPage5.Text = "Borrow";
             tabPage5.UseVisualStyleBackColor = true;
             // 
             // tabPage6
@@ -552,15 +742,35 @@
             tabPage6.Padding = new Padding(3);
             tabPage6.Size = new Size(1154, 650);
             tabPage6.TabIndex = 5;
-            tabPage6.Text = "tabPage6";
+            tabPage6.Text = "Copy";
             tabPage6.UseVisualStyleBackColor = true;
             // 
-            // AuthorNameColumn
+            // tabPage7
             // 
-            AuthorNameColumn.HeaderText = "Author";
-            AuthorNameColumn.MinimumWidth = 6;
-            AuthorNameColumn.Name = "AuthorNameColumn";
-            AuthorNameColumn.Width = 125;
+            tabPage7.Location = new Point(4, 29);
+            tabPage7.Name = "tabPage7";
+            tabPage7.Size = new Size(1154, 650);
+            tabPage7.TabIndex = 6;
+            tabPage7.Text = "Publisher";
+            tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // tabPage8
+            // 
+            tabPage8.Location = new Point(4, 29);
+            tabPage8.Name = "tabPage8";
+            tabPage8.Size = new Size(1154, 650);
+            tabPage8.TabIndex = 7;
+            tabPage8.Text = "Category";
+            tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // tabPage9
+            // 
+            tabPage9.Location = new Point(4, 29);
+            tabPage9.Name = "tabPage9";
+            tabPage9.Size = new Size(1154, 650);
+            tabPage9.TabIndex = 8;
+            tabPage9.Text = "Phone";
+            tabPage9.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -581,6 +791,10 @@
             tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)authorBindingSource).EndInit();
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)borrowereBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -612,13 +826,6 @@
         private Button BookAddBtn;
         private Button BookUpdateBtn;
         private Button BookRemoveBtn;
-        private DataGridViewTextBoxColumn isbnDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn editionDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn yearofpublicationDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn catIdDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn pubidDataGridViewTextBoxColumn;
         private DataGridView dataGridView2;
         private Label label9;
         private Label label8;
@@ -636,6 +843,33 @@
         private Button AuthorRemoveBtn;
         private Button AuthorUpdateBtn;
         private Button AuthorAddBtn;
-        private DataGridViewTextBoxColumn AuthorNameColumn;
+        private TabPage tabPage7;
+        private TabPage tabPage8;
+        private TabPage tabPage9;
+        private Label label16;
+        private Label label15;
+        private Label label14;
+        private Label label13;
+        private TextBox BorrowereAddressTb;
+        private TextBox BorrowereLastTb;
+        private TextBox BorrowereFirstTb;
+        private TextBox BorrowerePhoneTb;
+        private DataGridView dataGridView3;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private BindingSource borrowereBindingSource;
+        private Button BorrowereRemoveBtn;
+        private Button BorrowereUpdateBtn;
+        private Button BorrowereAddBtn;
+        private DataGridViewTextBoxColumn isbnDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn editionDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn yearofpublicationDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn catIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn pubidDataGridViewTextBoxColumn;
     }
 }
