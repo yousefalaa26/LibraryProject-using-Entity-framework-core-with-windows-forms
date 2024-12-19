@@ -32,12 +32,17 @@ namespace LibraryProject
             var Borroweres = context.Borrowers.ToList();
             dataGridView3.DataSource = Borroweres;
         }
+        private void loadPublishers()
+        {
+            var Publishers = context.Publishers.ToList(); dataGridView4.DataSource = Publishers;
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             loadBooks();
             loadAuthors();
             loadBorrowers();
+            loadPublishers();
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -202,10 +207,10 @@ namespace LibraryProject
                 MessageBox.Show("Error removing author: " + ex.Message);
             }
         }
-        //---------------------------------------Borrowers-------------------------------------//
+        //---------------------------------------Borrowers---------------------------------------//
         private void dataGridView3_SelectionChanged(object sender, EventArgs e)
         {
-            var borrower= context.Borrowers.
+            var borrower = context.Borrowers.
                 SingleOrDefault(x => x.BrrId == (int)dataGridView3.CurrentRow.Cells[0].Value);
 
             if (borrower != null)
@@ -273,6 +278,79 @@ namespace LibraryProject
             catch (Exception ex)
             {
                 MessageBox.Show("Error removing borrower: " + ex.Message);
+            }
+        }
+
+        //--------------------------------------Publishers-----------------------------------//
+        private void dataGridView4_SelectionChanged(object sender, EventArgs e)
+        {
+            var publisher = context.Publishers
+                .SingleOrDefault(x => x.PubId == (int)dataGridView4.CurrentRow.Cells[0].Value);
+
+            if (publisher != null)
+            {
+                PublisherIdTb.Text = publisher.PubId.ToString();
+                PublisherNameTb.Text = publisher.PubName;
+                PublisherAddressTb.Text = publisher.PubAddress;
+            }
+        }
+        private void PublisherAddBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Publisher publisher = new Publisher()
+                {
+                    PubId = int.Parse(PublisherIdTb.Text),
+                    PubName = PublisherNameTb.Text,
+                    PubAddress = PublisherAddressTb.Text
+                };
+
+                context.Publishers.Add(publisher);
+                context.SaveChanges();
+
+                loadPublishers();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding publisher: " + ex.Message);
+            }
+        }
+
+        private void PublisherUpdateBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var publisher = context.Publishers.
+                    Single(x => x.PubId == (int)dataGridView4.CurrentRow.Cells[0].Value);
+
+                publisher.PubId = int.Parse(PublisherIdTb.Text);
+                publisher.PubName = PublisherNameTb.Text;
+                publisher.PubAddress = PublisherAddressTb.Text;
+
+                context.SaveChanges();
+                loadPublishers();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating publisher: " + ex.Message);
+            }
+        }
+
+        private void PublisherRemoveBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var publisher = context.Publishers.
+                    Single(x => x.PubId == (int)dataGridView4.CurrentRow.Cells[0].Value);
+
+                context.Publishers.Remove(publisher);
+                context.SaveChanges();
+
+                loadPublishers();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error removing publisher: " + ex.Message);
             }
         }
     }

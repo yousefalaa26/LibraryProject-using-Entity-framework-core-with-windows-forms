@@ -90,12 +90,26 @@
             brrNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             brrAddressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             borrowereBindingSource = new BindingSource(components);
-            tabPage4 = new TabPage();
+            tabPage7 = new TabPage();
+            PublisherRemoveBtn = new Button();
+            PublisherUpdateBtn = new Button();
+            PublisherAddBtn = new Button();
+            label17 = new Label();
+            label13 = new Label();
+            label12 = new Label();
+            PublisherAddressTb = new TextBox();
+            PublisherNameTb = new TextBox();
+            PublisherIdTb = new TextBox();
+            dataGridView4 = new DataGridView();
+            pubIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            pubNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            pubAddressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            publisherBindingSource = new BindingSource(components);
             tabPage5 = new TabPage();
             tabPage6 = new TabPage();
-            tabPage7 = new TabPage();
             tabPage8 = new TabPage();
             tabPage9 = new TabPage();
+            tabPage10 = new TabPage();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -106,6 +120,9 @@
             tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)borrowereBindingSource).BeginInit();
+            tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)publisherBindingSource).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -113,12 +130,12 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
-            tabControl1.Controls.Add(tabPage4);
+            tabControl1.Controls.Add(tabPage7);
             tabControl1.Controls.Add(tabPage5);
             tabControl1.Controls.Add(tabPage6);
-            tabControl1.Controls.Add(tabPage7);
             tabControl1.Controls.Add(tabPage8);
             tabControl1.Controls.Add(tabPage9);
+            tabControl1.Controls.Add(tabPage10);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
@@ -554,7 +571,7 @@
             tabPage3.Padding = new Padding(3);
             tabPage3.Size = new Size(1154, 650);
             tabPage3.TabIndex = 2;
-            tabPage3.Text = "Borrower";
+            tabPage3.Text = "Borrowers";
             tabPage3.UseVisualStyleBackColor = true;
             // 
             // BorrowereRemoveBtn
@@ -677,15 +694,144 @@
             // 
             borrowereBindingSource.DataSource = typeof(Entities.Borrower);
             // 
-            // tabPage4
+            // tabPage7
             // 
-            tabPage4.Location = new Point(4, 29);
-            tabPage4.Name = "tabPage4";
-            tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(1154, 650);
-            tabPage4.TabIndex = 3;
-            tabPage4.Text = "Authority";
-            tabPage4.UseVisualStyleBackColor = true;
+            tabPage7.Controls.Add(PublisherRemoveBtn);
+            tabPage7.Controls.Add(PublisherUpdateBtn);
+            tabPage7.Controls.Add(PublisherAddBtn);
+            tabPage7.Controls.Add(label17);
+            tabPage7.Controls.Add(label13);
+            tabPage7.Controls.Add(label12);
+            tabPage7.Controls.Add(PublisherAddressTb);
+            tabPage7.Controls.Add(PublisherNameTb);
+            tabPage7.Controls.Add(PublisherIdTb);
+            tabPage7.Controls.Add(dataGridView4);
+            tabPage7.Location = new Point(4, 29);
+            tabPage7.Name = "tabPage7";
+            tabPage7.Size = new Size(1154, 650);
+            tabPage7.TabIndex = 6;
+            tabPage7.Text = "Publishers";
+            tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // PublisherRemoveBtn
+            // 
+            PublisherRemoveBtn.Location = new Point(778, 538);
+            PublisherRemoveBtn.Name = "PublisherRemoveBtn";
+            PublisherRemoveBtn.Size = new Size(227, 36);
+            PublisherRemoveBtn.TabIndex = 9;
+            PublisherRemoveBtn.Text = "Remove";
+            PublisherRemoveBtn.UseVisualStyleBackColor = true;
+            PublisherRemoveBtn.Click += PublisherRemoveBtn_Click;
+            // 
+            // PublisherUpdateBtn
+            // 
+            PublisherUpdateBtn.Location = new Point(778, 474);
+            PublisherUpdateBtn.Name = "PublisherUpdateBtn";
+            PublisherUpdateBtn.Size = new Size(227, 36);
+            PublisherUpdateBtn.TabIndex = 8;
+            PublisherUpdateBtn.Text = "Update";
+            PublisherUpdateBtn.UseVisualStyleBackColor = true;
+            PublisherUpdateBtn.Click += PublisherUpdateBtn_Click;
+            // 
+            // PublisherAddBtn
+            // 
+            PublisherAddBtn.Location = new Point(778, 413);
+            PublisherAddBtn.Name = "PublisherAddBtn";
+            PublisherAddBtn.Size = new Size(227, 36);
+            PublisherAddBtn.TabIndex = 7;
+            PublisherAddBtn.Text = "Add";
+            PublisherAddBtn.UseVisualStyleBackColor = true;
+            PublisherAddBtn.Click += PublisherAddBtn_Click;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(682, 309);
+            label17.Name = "label17";
+            label17.Size = new Size(124, 20);
+            label17.TabIndex = 6;
+            label17.Text = "Publisher address";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(696, 187);
+            label13.Name = "label13";
+            label13.Size = new Size(110, 20);
+            label13.TabIndex = 5;
+            label13.Text = "Publisher name";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(739, 71);
+            label12.Name = "label12";
+            label12.Size = new Size(22, 20);
+            label12.TabIndex = 4;
+            label12.Text = "Id";
+            // 
+            // PublisherAddressTb
+            // 
+            PublisherAddressTb.Location = new Point(812, 306);
+            PublisherAddressTb.Name = "PublisherAddressTb";
+            PublisherAddressTb.Size = new Size(236, 27);
+            PublisherAddressTb.TabIndex = 3;
+            // 
+            // PublisherNameTb
+            // 
+            PublisherNameTb.Location = new Point(812, 184);
+            PublisherNameTb.Name = "PublisherNameTb";
+            PublisherNameTb.Size = new Size(236, 27);
+            PublisherNameTb.TabIndex = 2;
+            // 
+            // PublisherIdTb
+            // 
+            PublisherIdTb.Location = new Point(812, 68);
+            PublisherIdTb.Name = "PublisherIdTb";
+            PublisherIdTb.Size = new Size(236, 27);
+            PublisherIdTb.TabIndex = 1;
+            // 
+            // dataGridView4
+            // 
+            dataGridView4.AutoGenerateColumns = false;
+            dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView4.Columns.AddRange(new DataGridViewColumn[] { pubIdDataGridViewTextBoxColumn, pubNameDataGridViewTextBoxColumn, pubAddressDataGridViewTextBoxColumn });
+            dataGridView4.DataSource = publisherBindingSource;
+            dataGridView4.Dock = DockStyle.Left;
+            dataGridView4.Location = new Point(0, 0);
+            dataGridView4.Name = "dataGridView4";
+            dataGridView4.RowHeadersWidth = 51;
+            dataGridView4.Size = new Size(628, 650);
+            dataGridView4.TabIndex = 0;
+            dataGridView4.SelectionChanged += dataGridView4_SelectionChanged;
+            // 
+            // pubIdDataGridViewTextBoxColumn
+            // 
+            pubIdDataGridViewTextBoxColumn.DataPropertyName = "PubId";
+            pubIdDataGridViewTextBoxColumn.HeaderText = "Id";
+            pubIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            pubIdDataGridViewTextBoxColumn.Name = "pubIdDataGridViewTextBoxColumn";
+            pubIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // pubNameDataGridViewTextBoxColumn
+            // 
+            pubNameDataGridViewTextBoxColumn.DataPropertyName = "PubName";
+            pubNameDataGridViewTextBoxColumn.HeaderText = "Publisher name";
+            pubNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            pubNameDataGridViewTextBoxColumn.Name = "pubNameDataGridViewTextBoxColumn";
+            pubNameDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // pubAddressDataGridViewTextBoxColumn
+            // 
+            pubAddressDataGridViewTextBoxColumn.DataPropertyName = "PubAddress";
+            pubAddressDataGridViewTextBoxColumn.HeaderText = "Publisher Address";
+            pubAddressDataGridViewTextBoxColumn.MinimumWidth = 6;
+            pubAddressDataGridViewTextBoxColumn.Name = "pubAddressDataGridViewTextBoxColumn";
+            pubAddressDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // publisherBindingSource
+            // 
+            publisherBindingSource.DataSource = typeof(Entities.Publisher);
             // 
             // tabPage5
             // 
@@ -694,7 +840,7 @@
             tabPage5.Padding = new Padding(3);
             tabPage5.Size = new Size(1154, 650);
             tabPage5.TabIndex = 4;
-            tabPage5.Text = "Borrow";
+            tabPage5.Text = "Borrows";
             tabPage5.UseVisualStyleBackColor = true;
             // 
             // tabPage6
@@ -704,17 +850,8 @@
             tabPage6.Padding = new Padding(3);
             tabPage6.Size = new Size(1154, 650);
             tabPage6.TabIndex = 5;
-            tabPage6.Text = "Copy";
+            tabPage6.Text = "Copies";
             tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // tabPage7
-            // 
-            tabPage7.Location = new Point(4, 29);
-            tabPage7.Name = "tabPage7";
-            tabPage7.Size = new Size(1154, 650);
-            tabPage7.TabIndex = 6;
-            tabPage7.Text = "Publisher";
-            tabPage7.UseVisualStyleBackColor = true;
             // 
             // tabPage8
             // 
@@ -722,7 +859,7 @@
             tabPage8.Name = "tabPage8";
             tabPage8.Size = new Size(1154, 650);
             tabPage8.TabIndex = 7;
-            tabPage8.Text = "Category";
+            tabPage8.Text = "Categories";
             tabPage8.UseVisualStyleBackColor = true;
             // 
             // tabPage9
@@ -731,8 +868,17 @@
             tabPage9.Name = "tabPage9";
             tabPage9.Size = new Size(1154, 650);
             tabPage9.TabIndex = 8;
-            tabPage9.Text = "Phone";
+            tabPage9.Text = "Borrowers Phones";
             tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // tabPage10
+            // 
+            tabPage10.Location = new Point(4, 29);
+            tabPage10.Name = "tabPage10";
+            tabPage10.Size = new Size(1154, 650);
+            tabPage10.TabIndex = 9;
+            tabPage10.Text = "Publishers Phones";
+            tabPage10.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -757,6 +903,10 @@
             tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
             ((System.ComponentModel.ISupportInitialize)borrowereBindingSource).EndInit();
+            tabPage7.ResumeLayout(false);
+            tabPage7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)publisherBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -768,7 +918,6 @@
         private DataGridView dataGridView1;
         private BindingSource bookBindingSource;
         private TabPage tabPage3;
-        private TabPage tabPage4;
         private TabPage tabPage5;
         private TabPage tabPage6;
         private DateTimePicker BookYearTb;
@@ -840,5 +989,20 @@
         private DataGridViewTextBoxColumn brrIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn brrNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn brrAddressDataGridViewTextBoxColumn;
+        private TabPage tabPage10;
+        private DataGridView dataGridView4;
+        private DataGridViewTextBoxColumn pubIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn pubNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn pubAddressDataGridViewTextBoxColumn;
+        private BindingSource publisherBindingSource;
+        private TextBox PublisherAddressTb;
+        private TextBox PublisherNameTb;
+        private TextBox PublisherIdTb;
+        private Button PublisherRemoveBtn;
+        private Button PublisherUpdateBtn;
+        private Button PublisherAddBtn;
+        private Label label17;
+        private Label label13;
+        private Label label12;
     }
 }
