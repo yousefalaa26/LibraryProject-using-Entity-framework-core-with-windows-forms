@@ -5,7 +5,7 @@ namespace LibraryProject.Entities;
 
 public partial class Borrow
 {
-    public int BorrowId { get; set; }
+    public int Borrow_Id { get; set; }
 
     public DateOnly? BorrowingDate { get; set; }
 

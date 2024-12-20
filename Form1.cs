@@ -1,4 +1,5 @@
 //using LibraryProject.Entities;
+using LibraryProject;
 using LibraryProject.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,7 +20,7 @@ namespace LibraryProject
         private void loadBooks()
         {
             var books = context.Books.ToList();
-            dataGridView1.DataSource = books;
+            DataGridBooks.DataSource = books;
 
         }
         private void loadAuthors()
@@ -34,8 +35,25 @@ namespace LibraryProject
         }
         private void loadPublishers()
         {
-            var Publishers = context.Publishers.ToList(); dataGridView4.DataSource = Publishers;
+            var Publishers = context.Publishers.ToList();
+            dataGridView4.DataSource = Publishers;
         }
+        private void loadBorrows()
+        {
+            var borrows = context.Borrows.ToList();
+            dataGridView5.DataSource = borrows;
+        }
+        private void loadAuthorities()
+        {
+            var authorities = context.Authorities.ToList();
+            DataGridAuthorities.DataSource = authorities;
+        }
+        private void loadCopies()
+        {
+            var copies = context.Copies.ToList();
+            DataGridCopies.DataSource = copies;
+        }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -43,14 +61,17 @@ namespace LibraryProject
             loadAuthors();
             loadBorrowers();
             loadPublishers();
+            loadBorrows();
+            loadAuthorities();
+            loadCopies();
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow != null)
+            if (DataGridBooks.CurrentRow != null)
             {
                 var book = context.Books
-                    .SingleOrDefault(x => x.Isbn == (int)dataGridView1.CurrentRow.Cells[0].Value);
+                    .SingleOrDefault(x => x.Isbn == (int)DataGridBooks.CurrentRow.Cells[0].Value);
 
                 if (book != null)
                 {
@@ -95,7 +116,7 @@ namespace LibraryProject
         {
             try
             {
-                var book = context.Books.Single(x => x.Isbn == (int)dataGridView1.CurrentRow.Cells[0].Value);
+                var book = context.Books.Single(x => x.Isbn == (int)DataGridBooks.CurrentRow.Cells[0].Value);
 
                 book.Isbn = int.Parse(BookISBNTb.Text);
                 book.Title = BookTitleTb.Text;
@@ -118,7 +139,7 @@ namespace LibraryProject
         {
             try
             {
-                var book = context.Books.Single(x => x.Isbn == (int)dataGridView1.CurrentRow.Cells[0].Value);
+                var book = context.Books.Single(x => x.Isbn == (int)DataGridBooks.CurrentRow.Cells[0].Value);
 
                 context.Books.Remove(book);
                 context.SaveChanges();
@@ -127,6 +148,82 @@ namespace LibraryProject
             catch (Exception ex)
             {
                 MessageBox.Show("Error removing book: " + ex.Message);
+            }
+        }
+
+        // ---------------------------------------Authorities--------------------------------------//
+
+        /////////////////////////////////////still not finished //////////////////////////////////////
+        private void DataGridAuthorities_SelectionChanged(object sender, EventArgs e)
+        {
+            var authorities = context.Authorities
+            .SingleOrDefault(x => x.ISBN == (int)DataGridAuthorities.CurrentRow.Cells[0].Value);
+            //&& x.Author_ID == (int)DataGridAuthorities.CurrentRow.Cells[1].Value);
+
+            if (authorities != null)
+            {
+                AuthoritiesIsbnTb.Text = authorities.ISBN.ToString();
+                AuthoritiesAuthorIdTb.Text = authorities.Author_ID.ToString();
+            }
+        }
+
+        private void AuthoritiesAddBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Authorities authorities = new Authorities()
+                {
+                    ISBN = int.Parse(AuthoritiesIsbnTb.Text),
+                    Author_ID = int.Parse(AuthoritiesAuthorIdTb.Text)
+                };
+
+                context.Authorities.Add(authorities);
+                context.SaveChanges();
+
+                loadAuthorities();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding authorities: " + ex.Message);
+            }
+        }
+
+        private void AuthoritiesUpdateBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var authorities = context.Authorities
+                .Single(x => x.ISBN == (int)DataGridAuthorities.CurrentRow.Cells[0].Value
+                && x.Author_ID == (int)DataGridAuthorities.CurrentRow.Cells[1].Value);
+
+                authorities.ISBN = int.Parse(AuthoritiesIsbnTb.Text);
+                authorities.Author_ID = int.Parse(AuthoritiesAuthorIdTb.Text);
+
+                context.SaveChanges();
+                loadAuthorities();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating authorities: " + ex.Message);
+            }
+        }
+
+        private void AuthoritiesRemoveBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var authorities = context.Authorities
+                .Single(x => x.ISBN == (int)DataGridAuthorities.CurrentRow.Cells[0].Value
+                && x.Author_ID == (int)DataGridAuthorities.CurrentRow.Cells[1].Value);
+
+                context.Authorities.Remove(authorities);
+                context.SaveChanges();
+
+                loadAuthorities();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error removing authorities: " + ex.Message);
             }
         }
         //-------------------------------------Authors----------------------------------------//
@@ -351,6 +448,179 @@ namespace LibraryProject
             catch (Exception ex)
             {
                 MessageBox.Show("Error removing publisher: " + ex.Message);
+            }
+        }
+
+        //-------------------------------------Borrows-------------------------------------//
+        private void dataGridView5_SelectionChanged(object sender, EventArgs e)
+        {
+            var borrow = context.Borrows
+                .SingleOrDefault(x => x.Borrow_Id == (int)dataGridView5.CurrentRow.Cells[0].Value);
+
+            if (borrow != null)
+            {
+                //BorrowIdTb.Text = borrow.Borrow_Id.ToString();
+                BorrowDatePicker.Text = borrow.BorrowingDate.ToString();
+                BorrowReturnPicker.Text = borrow.ReturnDate.ToString();
+                BorrowBorrowerIdTb.Text = borrow.BorrowerId.ToString();
+                BorrowCopyIdTb.Text = borrow.CopyId.ToString();
+            }
+        }
+
+        private void BorrowsAddBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Borrow borrow = new Borrow()
+                {
+                    //Borrow_Id = int.Parse(BorrowIdTb.Text),
+                    BorrowingDate = DateOnly.Parse(BorrowDatePicker.Text),
+                    ReturnDate = DateOnly.Parse(BorrowReturnPicker.Text),
+                    BorrowerId = int.Parse(BorrowBorrowerIdTb.Text),
+                    CopyId = int.Parse(BorrowCopyIdTb.Text)
+                };
+
+                context.Borrows.Add(borrow);
+                context.SaveChanges();
+
+                loadBorrows();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding borrow: " + ex.Message);
+            }
+        }
+
+        private void BorrowsUpdateBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var borrow = context.Borrows.
+                    Single(x => x.Borrow_Id == (int)dataGridView5.CurrentRow.Cells[0].Value);
+
+                //borrow.Borrow_Id = int.Parse(BorrowIdTb.Text);
+                borrow.BorrowingDate = DateOnly.Parse(BorrowDatePicker.Text);
+                borrow.ReturnDate = DateOnly.Parse(BorrowReturnPicker.Text);
+                borrow.BorrowerId = int.Parse(BorrowBorrowerIdTb.Text);
+                borrow.CopyId = int.Parse(BorrowCopyIdTb.Text);
+
+                context.SaveChanges();
+                loadBorrows();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating borrow: " + ex.Message);
+            }
+        }
+
+        private void BorrowsRemoveBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var borrow = context.Borrows.
+                    Single(x => x.Borrow_Id == (int)dataGridView5.CurrentRow.Cells[0].Value);
+
+                context.Borrows.Remove(borrow);
+                context.SaveChanges();
+
+                loadBorrows();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error removing borrow: " + ex.Message);
+            }
+        }
+
+        //---------------------------------------Copies---------------------------------------//
+        //////////////////////////////there is an error////////////////////////////////////////
+        private void DataGridCopies_SelectionChanged(object sender, EventArgs e)
+        {
+            var copy = context.Copies.
+                SingleOrDefault(x => x.CopyId == (int)DataGridCopies.CurrentRow.Cells[0].Value);
+
+            if (copy != null)
+            {
+                if (copy.Available == "TRUE") CopiesAvailableCheckBox.Checked = true;
+                else CopiesAvailableCheckBox.Checked = false;
+
+                CopiesCopyIdTb.Text = copy.CopyId.ToString();
+                CopiesCopyNumberTb.Text = copy.CopyNumber.ToString();
+                CopiesPeriodTb.Text = copy.BorrowingPeriod.ToString();
+                CopiesIsbnTb.Text = copy.Isbn.ToString();
+            }
+        }
+
+        private void CopiesAddBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string flag;
+                if (CopiesAvailableCheckBox.Checked) flag = "TRUE";
+                else flag = "FALSE";
+
+
+                Copy copy = new Copy()
+                {
+                    CopyId = int.Parse(CopiesCopyIdTb.Text),
+                    CopyNumber = int.Parse(CopiesCopyNumberTb.Text),
+                    Available = flag,
+                    BorrowingPeriod = int.Parse(CopiesPeriodTb.Text),
+                    Isbn = int.Parse(CopiesIsbnTb.Text)
+                };
+
+                context.Copies.Add(copy);
+                context.SaveChanges();
+
+                loadCopies();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding copy: " + ex.Message);
+            }
+        }
+
+        private void CopiesUpdateBtn_Click(object sender, EventArgs e)
+        {
+            string flag;
+            try
+            {
+                var copy = context.Copies.
+                    Single(x => x.CopyId == (int)DataGridCopies.CurrentRow.Cells[0].Value);
+
+                if (CopiesAvailableCheckBox.Checked) flag = "TRUE";
+                else flag = "FALSE";
+
+                copy.CopyId = int.Parse(CopiesCopyIdTb.Text);
+                copy.CopyNumber = int.Parse(CopiesCopyNumberTb.Text);
+                copy.Available = flag;
+                copy.BorrowingPeriod = int.Parse(CopiesPeriodTb.Text);
+                copy.Isbn = int.Parse(CopiesCopyIdTb.Text);
+
+                context.SaveChanges();
+
+                loadCopies();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating copy: " + ex.Message);
+            }
+        }
+
+        private void CopiesRemoveBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var copy = context.Copies.
+                    Single(x => x.CopyId == (int)DataGridCopies.CurrentRow.Cells[0].Value);
+
+                context.Copies.Remove(copy);
+                context.SaveChanges();
+
+                loadCopies();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error removing copy: " + ex.Message);
             }
         }
     }

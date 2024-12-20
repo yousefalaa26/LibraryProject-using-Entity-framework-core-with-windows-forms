@@ -25,5 +25,5 @@ public partial class Book
 
     public virtual Publisher? Pub { get; set; }
 
-    public virtual ICollection<Author> Authors { get; set; } = new List<Author>();
+    public virtual ICollection<Authorities> ?Authorities { get; set; }
 }

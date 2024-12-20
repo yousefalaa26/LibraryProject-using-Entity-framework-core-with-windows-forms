@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using LibraryProject.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibraryProject;
+namespace LibraryProject.Entities;
 
 public partial class LibraryContext : DbContext
 {
@@ -33,6 +32,7 @@ public partial class LibraryContext : DbContext
     public virtual DbSet<PhonePublisher> PhonePublishers { get; set; }
 
     public virtual DbSet<Publisher> Publishers { get; set; }
+    public virtual DbSet<Authorities> Authorities { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -40,9 +40,24 @@ public partial class LibraryContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+
+        modelBuilder.Entity<Authorities>()
+            .HasKey(a => new { a.Author_ID, a.ISBN });
+
+        modelBuilder.Entity<Authorities>()
+            .HasOne(a => a.Author)
+            .WithMany(a => a.Authorities)
+            .HasForeignKey(a => a.Author_ID);
+
+        modelBuilder.Entity<Authorities>()
+            .HasOne(b => b.Book)
+            .WithMany(b => b.Authorities)
+            .HasForeignKey(b => b.ISBN);
+
+
         modelBuilder.Entity<Author>(entity =>
         {
-            entity.HasKey(e => e.AuId).HasName("PK__Author__E26B4B8A6F5259F0");
+            entity.HasKey(e => e.AuId).HasName("PK__Author__E26B4B8AFE4B6D08");
 
             entity.ToTable("Author");
 
@@ -62,29 +77,11 @@ public partial class LibraryContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("Mid_Name");
 
-            entity.HasMany(d => d.Isbns).WithMany(p => p.Authors)
-                .UsingEntity<Dictionary<string, object>>(
-                    "Authority",
-                    r => r.HasOne<Book>().WithMany()
-                        .HasForeignKey("Isbn")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Authorities_Books"),
-                    l => l.HasOne<Author>().WithMany()
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Authorities_Author"),
-                    j =>
-                    {
-                        j.HasKey("AuthorId", "Isbn").HasName("PK__Authorit__F1FE25B1490721F8");
-                        j.ToTable("Authorities");
-                        j.IndexerProperty<int>("AuthorId").HasColumnName("Author_ID");
-                        j.IndexerProperty<int>("Isbn").HasColumnName("ISBN");
-                    });
         });
 
         modelBuilder.Entity<Book>(entity =>
         {
-            entity.HasKey(e => e.Isbn).HasName("PK__books__447D36EB91D2A281");
+            entity.HasKey(e => e.Isbn).HasName("PK__books__447D36EB5CF74F81");
 
             entity.ToTable("books");
 
@@ -112,13 +109,11 @@ public partial class LibraryContext : DbContext
 
         modelBuilder.Entity<Borrow>(entity =>
         {
-            entity.HasKey(e => e.BorrowId).HasName("PK__Borrow__B7FA24ECCB41D5E8");
+            entity.HasKey(e => e.Borrow_Id).HasName("PK__Borrow__B7FA24EC466C5983");
 
             entity.ToTable("Borrow");
 
-            entity.Property(e => e.BorrowId)
-                .ValueGeneratedNever()
-                .HasColumnName("Borrow_ID");
+            entity.Property(e => e.Borrow_Id).HasColumnName("Borrow_ID");
             entity.Property(e => e.BorrowerId).HasColumnName("Borrower_ID");
             entity.Property(e => e.BorrowingDate).HasColumnName("borrowing_date");
             entity.Property(e => e.CopyId).HasColumnName("Copy_ID");
@@ -135,7 +130,7 @@ public partial class LibraryContext : DbContext
 
         modelBuilder.Entity<Borrower>(entity =>
         {
-            entity.HasKey(e => e.BrrId).HasName("PK__Borrower__D25014B9674E4EC5");
+            entity.HasKey(e => e.BrrId).HasName("PK__Borrower__D25014B944CA5529");
 
             entity.ToTable("Borrower");
 
@@ -154,7 +149,7 @@ public partial class LibraryContext : DbContext
 
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.CatId).HasName("PK__Category__26E351208052FA6E");
+            entity.HasKey(e => e.CatId).HasName("PK__Category__26E35120571FBF05");
 
             entity.ToTable("Category");
 
@@ -169,7 +164,7 @@ public partial class LibraryContext : DbContext
 
         modelBuilder.Entity<Copy>(entity =>
         {
-            entity.HasKey(e => e.CopyId).HasName("PK__Copies__2980667D54F7BB77");
+            entity.HasKey(e => e.CopyId).HasName("PK__Copies__2980667D028CB44F");
 
             entity.Property(e => e.CopyId)
                 .ValueGeneratedNever()
@@ -223,7 +218,7 @@ public partial class LibraryContext : DbContext
 
         modelBuilder.Entity<Publisher>(entity =>
         {
-            entity.HasKey(e => e.PubId).HasName("PK__Publishe__A9E4C647C25AE916");
+            entity.HasKey(e => e.PubId).HasName("PK__Publishe__A9E4C647588BA0A1");
 
             entity.ToTable("Publisher");
 

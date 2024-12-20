@@ -1,10 +1,8 @@
-﻿namespace LibraryProject.Entities
+﻿namespace LibraryProject.Entities;
+public class Authorities
 {
-    public partial class Authorities
-    {
-        public int Isbn { get; set; }
-        public int AuId { get; set; }
-
-
-    }
+    public int Author_ID { get; set; }
+    public Author Author { get; set; }
+    public int ISBN { get; set; }
+    public Book Book { get; set; }
 }
