@@ -1,6 +1,5 @@
-//using LibraryProject.Entities;
-using LibraryProject;
 using LibraryProject.Entities;
+using LibraryProject;
 using Microsoft.EntityFrameworkCore;
 
 namespace LibraryProject
@@ -17,6 +16,11 @@ namespace LibraryProject
 
         //------------------------------------------Books-------------------------------------------//
 
+        private void loadAll()
+        {
+            loadBooks(); loadAuthors(); loadPublishers(); loadCopies(); loadPublisherPhone();
+            loadAuthorities(); loadBorrows(); loadBorrowers(); loadBorrowersPhone(); loadCategories();
+        }
         private void loadBooks()
         {
             var books = context.Books.ToList();
@@ -43,6 +47,11 @@ namespace LibraryProject
             var borrows = context.Borrows.ToList();
             dataGridView5.DataSource = borrows;
         }
+        private void loadCategories()
+        {
+            var categories = context.Categories.ToList();
+            DataGridCategory.DataSource = categories;
+        }
         private void loadAuthorities()
         {
             var authorities = context.Authorities.ToList();
@@ -53,17 +62,21 @@ namespace LibraryProject
             var copies = context.Copies.ToList();
             DataGridCopies.DataSource = copies;
         }
+        private void loadBorrowersPhone()
+        {
+            var borrowerPhone = context.PhoneBorrowers.ToList();
+            DataGridBorrowersPhone.DataSource = borrowerPhone;
+        }
+        private void loadPublisherPhone()
+        {
+            var phones = context.PhonePublishers.ToList();
+            DataGridPublisherPhone.DataSource = phones;
+        }
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            loadBooks();
-            loadAuthors();
-            loadBorrowers();
-            loadPublishers();
-            loadBorrows();
-            loadAuthorities();
-            loadCopies();
+            loadAll();
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -104,7 +117,7 @@ namespace LibraryProject
 
                 context.Books.Add(book);
                 context.SaveChanges();
-                loadBooks();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -127,7 +140,7 @@ namespace LibraryProject
                 book.PubId = int.Parse(BookPublisherIdTb.Text);
 
                 context.SaveChanges();
-                loadBooks();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -143,7 +156,7 @@ namespace LibraryProject
 
                 context.Books.Remove(book);
                 context.SaveChanges();
-                loadBooks();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -156,9 +169,13 @@ namespace LibraryProject
         /////////////////////////////////////still not finished //////////////////////////////////////
         private void DataGridAuthorities_SelectionChanged(object sender, EventArgs e)
         {
+
+            int Cell1 = (int)DataGridAuthorities.CurrentRow.Cells[0].Value;
+            int Cell2 = (int)DataGridAuthorities.CurrentRow.Cells[1].Value;
+
             var authorities = context.Authorities
-            .SingleOrDefault(x => x.ISBN == (int)DataGridAuthorities.CurrentRow.Cells[0].Value);
-            //&& x.Author_ID == (int)DataGridAuthorities.CurrentRow.Cells[1].Value);
+            .SingleOrDefault(x => x.Author_ID == Cell1
+            && x.ISBN == Cell2);
 
             if (authorities != null)
             {
@@ -180,7 +197,7 @@ namespace LibraryProject
                 context.Authorities.Add(authorities);
                 context.SaveChanges();
 
-                loadAuthorities();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -200,7 +217,7 @@ namespace LibraryProject
                 authorities.Author_ID = int.Parse(AuthoritiesAuthorIdTb.Text);
 
                 context.SaveChanges();
-                loadAuthorities();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -219,7 +236,7 @@ namespace LibraryProject
                 context.Authorities.Remove(authorities);
                 context.SaveChanges();
 
-                loadAuthorities();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -257,7 +274,7 @@ namespace LibraryProject
                 context.Authors.Add(author);
                 context.SaveChanges();
 
-                loadAuthors();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -279,7 +296,7 @@ namespace LibraryProject
 
 
                 context.SaveChanges();
-                loadAuthors();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -297,7 +314,7 @@ namespace LibraryProject
                 context.Authors.Remove(author);
                 context.SaveChanges();
 
-                loadAuthors();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -332,7 +349,7 @@ namespace LibraryProject
                 context.Borrowers.Add(borrower);
                 context.SaveChanges();
 
-                loadBorrowers();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -352,7 +369,7 @@ namespace LibraryProject
                 borrowere.BrrAddress = BorrowereAddressTb.Text;
 
                 context.SaveChanges();
-                loadBorrowers();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -370,7 +387,7 @@ namespace LibraryProject
                 context.Borrowers.Remove(borrower);
                 context.SaveChanges();
 
-                loadBorrowers();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -383,6 +400,7 @@ namespace LibraryProject
         {
             var publisher = context.Publishers
                 .SingleOrDefault(x => x.PubId == (int)dataGridView4.CurrentRow.Cells[0].Value);
+
 
             if (publisher != null)
             {
@@ -405,7 +423,7 @@ namespace LibraryProject
                 context.Publishers.Add(publisher);
                 context.SaveChanges();
 
-                loadPublishers();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -425,7 +443,7 @@ namespace LibraryProject
                 publisher.PubAddress = PublisherAddressTb.Text;
 
                 context.SaveChanges();
-                loadPublishers();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -443,7 +461,7 @@ namespace LibraryProject
                 context.Publishers.Remove(publisher);
                 context.SaveChanges();
 
-                loadPublishers();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -483,7 +501,7 @@ namespace LibraryProject
                 context.Borrows.Add(borrow);
                 context.SaveChanges();
 
-                loadBorrows();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -505,7 +523,7 @@ namespace LibraryProject
                 borrow.CopyId = int.Parse(BorrowCopyIdTb.Text);
 
                 context.SaveChanges();
-                loadBorrows();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -523,7 +541,7 @@ namespace LibraryProject
                 context.Borrows.Remove(borrow);
                 context.SaveChanges();
 
-                loadBorrows();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -571,7 +589,7 @@ namespace LibraryProject
                 context.Copies.Add(copy);
                 context.SaveChanges();
 
-                loadCopies();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -598,7 +616,7 @@ namespace LibraryProject
 
                 context.SaveChanges();
 
-                loadCopies();
+                loadAll();
             }
             catch (Exception ex)
             {
@@ -616,11 +634,226 @@ namespace LibraryProject
                 context.Copies.Remove(copy);
                 context.SaveChanges();
 
-                loadCopies();
+                loadAll();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error removing copy: " + ex.Message);
+            }
+        }
+
+        //---------------------------------------Category--------------------------------------//
+        private void DataGridCategory_SelectionChanged(object sender, EventArgs e)
+        {
+            
+            var category = context.Categories
+                .SingleOrDefault(x => x.CatId == (int)DataGridCategory.CurrentRow.Cells[0].Value);
+
+            if (category != null)
+            {
+                CategoryIdTb.Text = category.CatId.ToString();
+                CategoryNameTb.Text = category.CatName.ToString();
+            }
+        }
+
+        private void CategoryAddBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Category category = new Category()
+                {
+                    CatId = int.Parse(CategoryIdTb.Text),
+                    CatName = CategoryNameTb.Text
+                };
+
+                context.Categories.Add(category);
+                context.SaveChanges();
+
+                loadAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding category: " + ex.Message);
+            }
+        }
+
+        private void CategoryUpdateBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var category = context.Categories
+                .Single(x => x.CatId == (int)DataGridCategory.CurrentRow.Cells[0].Value);
+
+                category.CatId = int.Parse(CategoryIdTb.Text);
+                category.CatName = CategoryNameTb.Text;
+
+                context.SaveChanges();
+
+                loadAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating category: " + ex.Message);
+            }
+        }
+
+        private void CategoryRemoveBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var category = context.Categories
+                .SingleOrDefault(x => x.CatId == (int)DataGridCategory.CurrentRow.Cells[0].Value);
+
+                context.Categories.Remove(category);
+
+                context.SaveChanges();
+
+                loadAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error removing category: " + ex.Message);
+            }
+        }
+
+        //-------------------------------------BorrowerPhone----------------------------------//
+        private void DataGridBorrowersPhone_SelectionChanged(object sender, EventArgs e)
+        {
+            var borrowerPhone = context.PhoneBorrowers
+                .SingleOrDefault(x => x.BrrId == (int)DataGridBorrowersPhone.CurrentRow.Cells[0].Value);
+
+            if (borrowerPhone != null)
+            {
+                BorrowerPhoneIdTb.Text = borrowerPhone.BrrId.ToString();
+                BorrowerPhoneTb.Text = borrowerPhone.BrrPhone;
+            }
+        }
+
+        private void BorrowerPhoneAddBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PhoneBorrower phoneBorrower = new PhoneBorrower()
+                {
+                    BrrId = int.Parse(BorrowerPhoneIdTb.Text),
+                    BrrPhone = BorrowerPhoneTb.Text
+                };
+
+                context.PhoneBorrowers.Add(phoneBorrower);
+                context.SaveChanges();
+
+                loadAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding borrower phone: " + ex.Message);
+            }
+        }
+
+        private void BorrowerPhoneUpdateBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var borrowerPhone = context.PhoneBorrowers
+                .Single(x => x.BrrId == (int)DataGridBorrowersPhone.CurrentRow.Cells[0].Value);
+
+                borrowerPhone.BrrId = int.Parse(BorrowerPhoneIdTb.Text);
+                borrowerPhone.BrrPhone = BorrowerPhoneTb.Text;
+
+                context.SaveChanges();
+                loadAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating borrower phone: " + ex.Message);
+            }
+        }
+
+        private void BorrowerPhoneRemoveBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var borrowerPhone = context.PhoneBorrowers
+                .Single(x => x.BrrId == (int)DataGridBorrowersPhone.CurrentRow.Cells[0].Value);
+
+                context.PhoneBorrowers.Remove(borrowerPhone);
+                context.SaveChanges();
+                loadAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Removing borrower phone: " + ex.Message);
+            }
+        }
+
+        //------------------------------------------publisherPhone----------------------------------------//
+        private void DataGridPublisherPhone_SelectionChanged(object sender, EventArgs e)
+        {
+            var publisherPhone = context.PhonePublishers
+                .SingleOrDefault(x => x.PubId == (int)DataGridPublisherPhone.CurrentRow.Cells[0].Value);
+
+            if (publisherPhone != null)
+            {
+                PublisherPhoneIdTb.Text = publisherPhone.PubId.ToString();
+                PublisherPhoneTb.Text = publisherPhone.PhoneNumber;
+            }
+        }
+
+        private void PublisherPhoneAddBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PhonePublisher phonePublisher = new PhonePublisher()
+                {
+                    PubId = int.Parse(PublisherPhoneIdTb.Text),
+                    PhoneNumber = PublisherPhoneTb.Text
+                };
+
+                context.PhonePublishers.Add(phonePublisher);
+                context.SaveChanges();
+
+                loadAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding publisher phone: " + ex.Message);
+            }
+        }
+
+        private void PublisherPhoneUpdateBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var publisherPhone = context.PhonePublishers
+                .Single(x => x.PubId == (int)DataGridPublisherPhone.CurrentRow.Cells[0].Value);
+
+                publisherPhone.PubId = int.Parse(PublisherPhoneIdTb.Text);
+                publisherPhone.PhoneNumber = PublisherPhoneTb.Text;
+
+                context.SaveChanges();
+
+                loadAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating publisher phone: " + ex.Message);
+            }
+        }
+
+        private void PublisherPhoneRemoveBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var publisherPhone = context.PhonePublishers
+                .Single(x => x.PubId == (int)DataGridPublisherPhone.CurrentRow.Cells[0].Value);
+
+                context.PhonePublishers.Remove(publisherPhone);
+                context.SaveChanges();
+                loadAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Removing publisher phone: " + ex.Message);
             }
         }
     }

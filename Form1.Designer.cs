@@ -49,13 +49,6 @@
             BookTitleTb = new TextBox();
             BookISBNTb = new TextBox();
             DataGridBooks = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
             bookBindingSource = new BindingSource(components);
             tabPage4 = new TabPage();
             AuthoritiesRemoveBtn = new Button();
@@ -66,6 +59,9 @@
             AuthoritiesIsbnTb = new TextBox();
             AuthoritiesAuthorIdTb = new TextBox();
             DataGridAuthorities = new DataGridView();
+            authorIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
+            authoritiesBindingSource = new BindingSource(components);
             tabPage2 = new TabPage();
             AuthorRemoveBtn = new Button();
             AuthorUpdateBtn = new Button();
@@ -79,10 +75,6 @@
             AuthorFirstTb = new TextBox();
             AuthorIdTb = new TextBox();
             dataGridView2 = new DataGridView();
-            auIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            midNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             authorBindingSource = new BindingSource(components);
             tabPage3 = new TabPage();
             BorrowereRemoveBtn = new Button();
@@ -95,9 +87,6 @@
             BorrowerNameTb = new TextBox();
             BorrowerIdTb = new TextBox();
             dataGridView3 = new DataGridView();
-            brrIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            brrNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            brrAddressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             borrowerBindingSource = new BindingSource(components);
             tabPage7 = new TabPage();
             PublisherRemoveBtn = new Button();
@@ -110,7 +99,7 @@
             PublisherNameTb = new TextBox();
             PublisherIdTb = new TextBox();
             dataGridView4 = new DataGridView();
-            pubIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            Column1 = new DataGridViewTextBoxColumn();
             pubNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             pubAddressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             publisherBindingSource = new BindingSource(components);
@@ -154,17 +143,62 @@
             isbnDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             copyBindingSource = new BindingSource(components);
             tabPage8 = new TabPage();
+            CategoryRemoveBtn = new Button();
+            CategoryUpdateBtn = new Button();
+            label29 = new Label();
+            CategoryNameTb = new TextBox();
+            CategoryIdTb = new TextBox();
+            CategoryAddBtn = new Button();
+            label26 = new Label();
+            DataGridCategory = new DataGridView();
+            dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
+            catNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            categoryBindingSource = new BindingSource(components);
             tabPage9 = new TabPage();
+            label31 = new Label();
+            label30 = new Label();
+            BorrowerPhoneRemoveBtn = new Button();
+            BorrowerPhoneUpdateBtn = new Button();
+            BorrowerPhoneAddBtn = new Button();
+            BorrowerPhoneTb = new TextBox();
+            BorrowerPhoneIdTb = new TextBox();
+            DataGridBorrowersPhone = new DataGridView();
+            phoneBorrowerBindingSource = new BindingSource(components);
             tabPage10 = new TabPage();
-            authoritiesBindingSource = new BindingSource(components);
-            authorIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
+            PublisherPhoneRemoveBtn = new Button();
+            PublisherPhoneUpdateBtn = new Button();
+            PublisherPhoneAddBtn = new Button();
+            label33 = new Label();
+            label32 = new Label();
+            PublisherPhoneTb = new TextBox();
+            PublisherPhoneIdTb = new TextBox();
+            DataGridPublisherPhone = new DataGridView();
+            dataGridViewTextBoxColumn11 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn12 = new DataGridViewTextBoxColumn();
+            phonePublisherBindingSource = new BindingSource(components);
+            brrIdDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            brrPhoneDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            brrIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            brrNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            brrAddressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            auIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            midNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DataGridBooks).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bookBindingSource).BeginInit();
             tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DataGridAuthorities).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)authoritiesBindingSource).BeginInit();
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)authorBindingSource).BeginInit();
@@ -180,7 +214,15 @@
             tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DataGridCopies).BeginInit();
             ((System.ComponentModel.ISupportInitialize)copyBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)authoritiesBindingSource).BeginInit();
+            tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DataGridCategory).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
+            tabPage9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DataGridBorrowersPhone).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)phoneBorrowerBindingSource).BeginInit();
+            tabPage10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DataGridPublisherPhone).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)phonePublisherBindingSource).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -387,62 +429,6 @@
             DataGridBooks.TabIndex = 0;
             DataGridBooks.SelectionChanged += dataGridView1_SelectionChanged;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "Isbn";
-            dataGridViewTextBoxColumn1.HeaderText = "Isbn";
-            dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.DataPropertyName = "Title";
-            dataGridViewTextBoxColumn2.HeaderText = "Title";
-            dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.DataPropertyName = "Edition";
-            dataGridViewTextBoxColumn3.HeaderText = "Edition";
-            dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewTextBoxColumn4.DataPropertyName = "YearOfPublication";
-            dataGridViewTextBoxColumn4.HeaderText = "YearOfPublication";
-            dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            dataGridViewTextBoxColumn4.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            dataGridViewTextBoxColumn5.DataPropertyName = "Price";
-            dataGridViewTextBoxColumn5.HeaderText = "Price";
-            dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            dataGridViewTextBoxColumn5.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            dataGridViewTextBoxColumn6.DataPropertyName = "CatId";
-            dataGridViewTextBoxColumn6.HeaderText = "CatId";
-            dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            dataGridViewTextBoxColumn6.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            dataGridViewTextBoxColumn7.DataPropertyName = "PubId";
-            dataGridViewTextBoxColumn7.HeaderText = "PubId";
-            dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            dataGridViewTextBoxColumn7.Width = 125;
-            // 
             // bookBindingSource
             // 
             bookBindingSource.DataSource = typeof(Entities.Book);
@@ -532,12 +518,33 @@
             DataGridAuthorities.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DataGridAuthorities.Columns.AddRange(new DataGridViewColumn[] { authorIDDataGridViewTextBoxColumn, dataGridViewTextBoxColumn9 });
             DataGridAuthorities.DataSource = authoritiesBindingSource;
+            DataGridAuthorities.Dock = DockStyle.Left;
             DataGridAuthorities.Location = new Point(0, 0);
             DataGridAuthorities.Name = "DataGridAuthorities";
             DataGridAuthorities.RowHeadersWidth = 51;
-            DataGridAuthorities.Size = new Size(304, 641);
+            DataGridAuthorities.Size = new Size(304, 650);
             DataGridAuthorities.TabIndex = 0;
             DataGridAuthorities.SelectionChanged += DataGridAuthorities_SelectionChanged;
+            // 
+            // authorIDDataGridViewTextBoxColumn
+            // 
+            authorIDDataGridViewTextBoxColumn.DataPropertyName = "Author_ID";
+            authorIDDataGridViewTextBoxColumn.HeaderText = "Author_ID";
+            authorIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            authorIDDataGridViewTextBoxColumn.Name = "authorIDDataGridViewTextBoxColumn";
+            authorIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            dataGridViewTextBoxColumn9.DataPropertyName = "ISBN";
+            dataGridViewTextBoxColumn9.HeaderText = "ISBN";
+            dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            dataGridViewTextBoxColumn9.Width = 125;
+            // 
+            // authoritiesBindingSource
+            // 
+            authoritiesBindingSource.DataSource = typeof(Entities.Authorities);
             // 
             // tabPage2
             // 
@@ -669,38 +676,6 @@
             dataGridView2.TabIndex = 0;
             dataGridView2.SelectionChanged += dataGridView2_SelectionChanged;
             // 
-            // auIdDataGridViewTextBoxColumn
-            // 
-            auIdDataGridViewTextBoxColumn.DataPropertyName = "AuId";
-            auIdDataGridViewTextBoxColumn.HeaderText = "AuId";
-            auIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            auIdDataGridViewTextBoxColumn.Name = "auIdDataGridViewTextBoxColumn";
-            auIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            firstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            firstNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // midNameDataGridViewTextBoxColumn
-            // 
-            midNameDataGridViewTextBoxColumn.DataPropertyName = "MidName";
-            midNameDataGridViewTextBoxColumn.HeaderText = "MidName";
-            midNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            midNameDataGridViewTextBoxColumn.Name = "midNameDataGridViewTextBoxColumn";
-            midNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            lastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            lastNameDataGridViewTextBoxColumn.Width = 125;
-            // 
             // authorBindingSource
             // 
             authorBindingSource.DataSource = typeof(Entities.Author);
@@ -727,9 +702,9 @@
             // 
             // BorrowereRemoveBtn
             // 
-            BorrowereRemoveBtn.Location = new Point(763, 584);
+            BorrowereRemoveBtn.Location = new Point(726, 554);
             BorrowereRemoveBtn.Name = "BorrowereRemoveBtn";
-            BorrowereRemoveBtn.Size = new Size(201, 39);
+            BorrowereRemoveBtn.Size = new Size(227, 46);
             BorrowereRemoveBtn.TabIndex = 13;
             BorrowereRemoveBtn.Text = "Remove";
             BorrowereRemoveBtn.UseVisualStyleBackColor = true;
@@ -737,9 +712,9 @@
             // 
             // BorrowereUpdateBtn
             // 
-            BorrowereUpdateBtn.Location = new Point(763, 519);
+            BorrowereUpdateBtn.Location = new Point(726, 484);
             BorrowereUpdateBtn.Name = "BorrowereUpdateBtn";
-            BorrowereUpdateBtn.Size = new Size(201, 39);
+            BorrowereUpdateBtn.Size = new Size(227, 46);
             BorrowereUpdateBtn.TabIndex = 12;
             BorrowereUpdateBtn.Text = "Update";
             BorrowereUpdateBtn.UseVisualStyleBackColor = true;
@@ -747,9 +722,9 @@
             // 
             // BorrowereAddBtn
             // 
-            BorrowereAddBtn.Location = new Point(763, 459);
+            BorrowereAddBtn.Location = new Point(726, 416);
             BorrowereAddBtn.Name = "BorrowereAddBtn";
-            BorrowereAddBtn.Size = new Size(201, 39);
+            BorrowereAddBtn.Size = new Size(227, 46);
             BorrowereAddBtn.TabIndex = 11;
             BorrowereAddBtn.Text = "Add";
             BorrowereAddBtn.UseVisualStyleBackColor = true;
@@ -813,33 +788,9 @@
             dataGridView3.Location = new Point(3, 3);
             dataGridView3.Name = "dataGridView3";
             dataGridView3.RowHeadersWidth = 51;
-            dataGridView3.Size = new Size(552, 644);
+            dataGridView3.Size = new Size(529, 644);
             dataGridView3.TabIndex = 0;
             dataGridView3.SelectionChanged += dataGridView3_SelectionChanged;
-            // 
-            // brrIdDataGridViewTextBoxColumn
-            // 
-            brrIdDataGridViewTextBoxColumn.DataPropertyName = "BrrId";
-            brrIdDataGridViewTextBoxColumn.HeaderText = "BrrId";
-            brrIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            brrIdDataGridViewTextBoxColumn.Name = "brrIdDataGridViewTextBoxColumn";
-            brrIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // brrNameDataGridViewTextBoxColumn
-            // 
-            brrNameDataGridViewTextBoxColumn.DataPropertyName = "BrrName";
-            brrNameDataGridViewTextBoxColumn.HeaderText = "BrrName";
-            brrNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            brrNameDataGridViewTextBoxColumn.Name = "brrNameDataGridViewTextBoxColumn";
-            brrNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // brrAddressDataGridViewTextBoxColumn
-            // 
-            brrAddressDataGridViewTextBoxColumn.DataPropertyName = "BrrAddress";
-            brrAddressDataGridViewTextBoxColumn.HeaderText = "BrrAddress";
-            brrAddressDataGridViewTextBoxColumn.MinimumWidth = 6;
-            brrAddressDataGridViewTextBoxColumn.Name = "brrAddressDataGridViewTextBoxColumn";
-            brrAddressDataGridViewTextBoxColumn.Width = 125;
             // 
             // borrowerBindingSource
             // 
@@ -866,9 +817,9 @@
             // 
             // PublisherRemoveBtn
             // 
-            PublisherRemoveBtn.Location = new Point(778, 538);
+            PublisherRemoveBtn.Location = new Point(727, 540);
             PublisherRemoveBtn.Name = "PublisherRemoveBtn";
-            PublisherRemoveBtn.Size = new Size(227, 36);
+            PublisherRemoveBtn.Size = new Size(251, 46);
             PublisherRemoveBtn.TabIndex = 9;
             PublisherRemoveBtn.Text = "Remove";
             PublisherRemoveBtn.UseVisualStyleBackColor = true;
@@ -876,9 +827,9 @@
             // 
             // PublisherUpdateBtn
             // 
-            PublisherUpdateBtn.Location = new Point(778, 474);
+            PublisherUpdateBtn.Location = new Point(727, 476);
             PublisherUpdateBtn.Name = "PublisherUpdateBtn";
-            PublisherUpdateBtn.Size = new Size(227, 36);
+            PublisherUpdateBtn.Size = new Size(251, 46);
             PublisherUpdateBtn.TabIndex = 8;
             PublisherUpdateBtn.Text = "Update";
             PublisherUpdateBtn.UseVisualStyleBackColor = true;
@@ -886,9 +837,9 @@
             // 
             // PublisherAddBtn
             // 
-            PublisherAddBtn.Location = new Point(778, 413);
+            PublisherAddBtn.Location = new Point(727, 415);
             PublisherAddBtn.Name = "PublisherAddBtn";
-            PublisherAddBtn.Size = new Size(227, 36);
+            PublisherAddBtn.Size = new Size(251, 46);
             PublisherAddBtn.TabIndex = 7;
             PublisherAddBtn.Text = "Add";
             PublisherAddBtn.UseVisualStyleBackColor = true;
@@ -946,23 +897,23 @@
             // 
             dataGridView4.AutoGenerateColumns = false;
             dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView4.Columns.AddRange(new DataGridViewColumn[] { pubIdDataGridViewTextBoxColumn, pubNameDataGridViewTextBoxColumn, pubAddressDataGridViewTextBoxColumn });
+            dataGridView4.Columns.AddRange(new DataGridViewColumn[] { Column1, pubNameDataGridViewTextBoxColumn, pubAddressDataGridViewTextBoxColumn });
             dataGridView4.DataSource = publisherBindingSource;
             dataGridView4.Dock = DockStyle.Left;
             dataGridView4.Location = new Point(0, 0);
             dataGridView4.Name = "dataGridView4";
             dataGridView4.RowHeadersWidth = 51;
-            dataGridView4.Size = new Size(628, 650);
+            dataGridView4.Size = new Size(559, 650);
             dataGridView4.TabIndex = 0;
             dataGridView4.SelectionChanged += dataGridView4_SelectionChanged;
             // 
-            // pubIdDataGridViewTextBoxColumn
+            // Column1
             // 
-            pubIdDataGridViewTextBoxColumn.DataPropertyName = "PubId";
-            pubIdDataGridViewTextBoxColumn.HeaderText = "PubId";
-            pubIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            pubIdDataGridViewTextBoxColumn.Name = "pubIdDataGridViewTextBoxColumn";
-            pubIdDataGridViewTextBoxColumn.Width = 125;
+            Column1.DataPropertyName = "PubId";
+            Column1.HeaderText = "Publisher Id";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.Width = 125;
             // 
             // pubNameDataGridViewTextBoxColumn
             // 
@@ -970,7 +921,7 @@
             pubNameDataGridViewTextBoxColumn.HeaderText = "PubName";
             pubNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             pubNameDataGridViewTextBoxColumn.Name = "pubNameDataGridViewTextBoxColumn";
-            pubNameDataGridViewTextBoxColumn.Width = 125;
+            pubNameDataGridViewTextBoxColumn.Width = 180;
             // 
             // pubAddressDataGridViewTextBoxColumn
             // 
@@ -978,7 +929,7 @@
             pubAddressDataGridViewTextBoxColumn.HeaderText = "PubAddress";
             pubAddressDataGridViewTextBoxColumn.MinimumWidth = 6;
             pubAddressDataGridViewTextBoxColumn.Name = "pubAddressDataGridViewTextBoxColumn";
-            pubAddressDataGridViewTextBoxColumn.Width = 125;
+            pubAddressDataGridViewTextBoxColumn.Width = 200;
             // 
             // publisherBindingSource
             // 
@@ -1347,6 +1298,14 @@
             // 
             // tabPage8
             // 
+            tabPage8.Controls.Add(CategoryRemoveBtn);
+            tabPage8.Controls.Add(CategoryUpdateBtn);
+            tabPage8.Controls.Add(label29);
+            tabPage8.Controls.Add(CategoryNameTb);
+            tabPage8.Controls.Add(CategoryIdTb);
+            tabPage8.Controls.Add(CategoryAddBtn);
+            tabPage8.Controls.Add(label26);
+            tabPage8.Controls.Add(DataGridCategory);
             tabPage8.Location = new Point(4, 29);
             tabPage8.Name = "tabPage8";
             tabPage8.Size = new Size(1154, 650);
@@ -1354,8 +1313,111 @@
             tabPage8.Text = "Categories";
             tabPage8.UseVisualStyleBackColor = true;
             // 
+            // CategoryRemoveBtn
+            // 
+            CategoryRemoveBtn.Location = new Point(578, 507);
+            CategoryRemoveBtn.Name = "CategoryRemoveBtn";
+            CategoryRemoveBtn.Size = new Size(255, 48);
+            CategoryRemoveBtn.TabIndex = 7;
+            CategoryRemoveBtn.Text = "Remove";
+            CategoryRemoveBtn.UseVisualStyleBackColor = true;
+            CategoryRemoveBtn.Click += CategoryRemoveBtn_Click;
+            // 
+            // CategoryUpdateBtn
+            // 
+            CategoryUpdateBtn.Location = new Point(578, 438);
+            CategoryUpdateBtn.Name = "CategoryUpdateBtn";
+            CategoryUpdateBtn.Size = new Size(255, 48);
+            CategoryUpdateBtn.TabIndex = 6;
+            CategoryUpdateBtn.Text = "Update";
+            CategoryUpdateBtn.UseVisualStyleBackColor = true;
+            CategoryUpdateBtn.Click += CategoryUpdateBtn_Click;
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Location = new Point(526, 171);
+            label29.Name = "label29";
+            label29.Size = new Size(69, 20);
+            label29.TabIndex = 5;
+            label29.Text = "Category";
+            // 
+            // CategoryNameTb
+            // 
+            CategoryNameTb.Location = new Point(639, 168);
+            CategoryNameTb.Name = "CategoryNameTb";
+            CategoryNameTb.Size = new Size(228, 27);
+            CategoryNameTb.TabIndex = 4;
+            // 
+            // CategoryIdTb
+            // 
+            CategoryIdTb.Location = new Point(639, 80);
+            CategoryIdTb.Name = "CategoryIdTb";
+            CategoryIdTb.Size = new Size(228, 27);
+            CategoryIdTb.TabIndex = 3;
+            // 
+            // CategoryAddBtn
+            // 
+            CategoryAddBtn.Location = new Point(578, 369);
+            CategoryAddBtn.Name = "CategoryAddBtn";
+            CategoryAddBtn.Size = new Size(255, 48);
+            CategoryAddBtn.TabIndex = 2;
+            CategoryAddBtn.Text = "Add";
+            CategoryAddBtn.UseVisualStyleBackColor = true;
+            CategoryAddBtn.Click += CategoryAddBtn_Click;
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Location = new Point(526, 83);
+            label26.Name = "label26";
+            label26.Size = new Size(22, 20);
+            label26.TabIndex = 1;
+            label26.Text = "Id";
+            // 
+            // DataGridCategory
+            // 
+            DataGridCategory.AutoGenerateColumns = false;
+            DataGridCategory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataGridCategory.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn10, catNameDataGridViewTextBoxColumn });
+            DataGridCategory.DataSource = categoryBindingSource;
+            DataGridCategory.Location = new Point(1, 2);
+            DataGridCategory.Name = "DataGridCategory";
+            DataGridCategory.RowHeadersWidth = 51;
+            DataGridCategory.Size = new Size(304, 644);
+            DataGridCategory.TabIndex = 0;
+            DataGridCategory.SelectionChanged += DataGridCategory_SelectionChanged;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            dataGridViewTextBoxColumn10.DataPropertyName = "CatId";
+            dataGridViewTextBoxColumn10.HeaderText = "Category Id";
+            dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            dataGridViewTextBoxColumn10.Width = 125;
+            // 
+            // catNameDataGridViewTextBoxColumn
+            // 
+            catNameDataGridViewTextBoxColumn.DataPropertyName = "CatName";
+            catNameDataGridViewTextBoxColumn.HeaderText = "Category";
+            catNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            catNameDataGridViewTextBoxColumn.Name = "catNameDataGridViewTextBoxColumn";
+            catNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // categoryBindingSource
+            // 
+            categoryBindingSource.DataSource = typeof(Entities.Category);
+            // 
             // tabPage9
             // 
+            tabPage9.Controls.Add(label31);
+            tabPage9.Controls.Add(label30);
+            tabPage9.Controls.Add(BorrowerPhoneRemoveBtn);
+            tabPage9.Controls.Add(BorrowerPhoneUpdateBtn);
+            tabPage9.Controls.Add(BorrowerPhoneAddBtn);
+            tabPage9.Controls.Add(BorrowerPhoneTb);
+            tabPage9.Controls.Add(BorrowerPhoneIdTb);
+            tabPage9.Controls.Add(DataGridBorrowersPhone);
             tabPage9.Location = new Point(4, 29);
             tabPage9.Name = "tabPage9";
             tabPage9.Size = new Size(1154, 650);
@@ -1363,8 +1425,96 @@
             tabPage9.Text = "Borrowers Phones";
             tabPage9.UseVisualStyleBackColor = true;
             // 
+            // label31
+            // 
+            label31.AutoSize = true;
+            label31.Location = new Point(622, 203);
+            label31.Name = "label31";
+            label31.Size = new Size(50, 20);
+            label31.TabIndex = 7;
+            label31.Text = "Phone";
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.Location = new Point(622, 119);
+            label30.Name = "label30";
+            label30.Size = new Size(22, 20);
+            label30.TabIndex = 6;
+            label30.Text = "Id";
+            // 
+            // BorrowerPhoneRemoveBtn
+            // 
+            BorrowerPhoneRemoveBtn.Location = new Point(603, 515);
+            BorrowerPhoneRemoveBtn.Name = "BorrowerPhoneRemoveBtn";
+            BorrowerPhoneRemoveBtn.Size = new Size(253, 50);
+            BorrowerPhoneRemoveBtn.TabIndex = 5;
+            BorrowerPhoneRemoveBtn.Text = "Remove";
+            BorrowerPhoneRemoveBtn.UseVisualStyleBackColor = true;
+            BorrowerPhoneRemoveBtn.Click += BorrowerPhoneRemoveBtn_Click;
+            // 
+            // BorrowerPhoneUpdateBtn
+            // 
+            BorrowerPhoneUpdateBtn.Location = new Point(603, 433);
+            BorrowerPhoneUpdateBtn.Name = "BorrowerPhoneUpdateBtn";
+            BorrowerPhoneUpdateBtn.Size = new Size(253, 50);
+            BorrowerPhoneUpdateBtn.TabIndex = 4;
+            BorrowerPhoneUpdateBtn.Text = "Update";
+            BorrowerPhoneUpdateBtn.UseVisualStyleBackColor = true;
+            BorrowerPhoneUpdateBtn.Click += BorrowerPhoneUpdateBtn_Click;
+            // 
+            // BorrowerPhoneAddBtn
+            // 
+            BorrowerPhoneAddBtn.Location = new Point(603, 360);
+            BorrowerPhoneAddBtn.Name = "BorrowerPhoneAddBtn";
+            BorrowerPhoneAddBtn.Size = new Size(253, 50);
+            BorrowerPhoneAddBtn.TabIndex = 3;
+            BorrowerPhoneAddBtn.Text = "Add";
+            BorrowerPhoneAddBtn.UseVisualStyleBackColor = true;
+            BorrowerPhoneAddBtn.Click += BorrowerPhoneAddBtn_Click;
+            // 
+            // BorrowerPhoneTb
+            // 
+            BorrowerPhoneTb.Location = new Point(718, 200);
+            BorrowerPhoneTb.Name = "BorrowerPhoneTb";
+            BorrowerPhoneTb.Size = new Size(225, 27);
+            BorrowerPhoneTb.TabIndex = 2;
+            // 
+            // BorrowerPhoneIdTb
+            // 
+            BorrowerPhoneIdTb.Location = new Point(718, 116);
+            BorrowerPhoneIdTb.Name = "BorrowerPhoneIdTb";
+            BorrowerPhoneIdTb.Size = new Size(225, 27);
+            BorrowerPhoneIdTb.TabIndex = 1;
+            // 
+            // DataGridBorrowersPhone
+            // 
+            DataGridBorrowersPhone.AutoGenerateColumns = false;
+            DataGridBorrowersPhone.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataGridBorrowersPhone.Columns.AddRange(new DataGridViewColumn[] { brrIdDataGridViewTextBoxColumn1, brrPhoneDataGridViewTextBoxColumn });
+            DataGridBorrowersPhone.DataSource = phoneBorrowerBindingSource;
+            DataGridBorrowersPhone.Dock = DockStyle.Left;
+            DataGridBorrowersPhone.Location = new Point(0, 0);
+            DataGridBorrowersPhone.Name = "DataGridBorrowersPhone";
+            DataGridBorrowersPhone.RowHeadersWidth = 51;
+            DataGridBorrowersPhone.Size = new Size(358, 650);
+            DataGridBorrowersPhone.TabIndex = 0;
+            DataGridBorrowersPhone.SelectionChanged += DataGridBorrowersPhone_SelectionChanged;
+            // 
+            // phoneBorrowerBindingSource
+            // 
+            phoneBorrowerBindingSource.DataSource = typeof(Entities.PhoneBorrower);
+            // 
             // tabPage10
             // 
+            tabPage10.Controls.Add(PublisherPhoneRemoveBtn);
+            tabPage10.Controls.Add(PublisherPhoneUpdateBtn);
+            tabPage10.Controls.Add(PublisherPhoneAddBtn);
+            tabPage10.Controls.Add(label33);
+            tabPage10.Controls.Add(label32);
+            tabPage10.Controls.Add(PublisherPhoneTb);
+            tabPage10.Controls.Add(PublisherPhoneIdTb);
+            tabPage10.Controls.Add(DataGridPublisherPhone);
             tabPage10.Location = new Point(4, 29);
             tabPage10.Name = "tabPage10";
             tabPage10.Size = new Size(1154, 650);
@@ -1372,25 +1522,229 @@
             tabPage10.Text = "Publishers Phones";
             tabPage10.UseVisualStyleBackColor = true;
             // 
-            // authoritiesBindingSource
+            // PublisherPhoneRemoveBtn
             // 
-            authoritiesBindingSource.DataSource = typeof(Entities.Authorities);
+            PublisherPhoneRemoveBtn.Location = new Point(610, 515);
+            PublisherPhoneRemoveBtn.Name = "PublisherPhoneRemoveBtn";
+            PublisherPhoneRemoveBtn.Size = new Size(281, 52);
+            PublisherPhoneRemoveBtn.TabIndex = 7;
+            PublisherPhoneRemoveBtn.Text = "Remove";
+            PublisherPhoneRemoveBtn.UseVisualStyleBackColor = true;
+            PublisherPhoneRemoveBtn.Click += PublisherPhoneRemoveBtn_Click;
             // 
-            // authorIDDataGridViewTextBoxColumn
+            // PublisherPhoneUpdateBtn
             // 
-            authorIDDataGridViewTextBoxColumn.DataPropertyName = "Author_ID";
-            authorIDDataGridViewTextBoxColumn.HeaderText = "Author_ID";
-            authorIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            authorIDDataGridViewTextBoxColumn.Name = "authorIDDataGridViewTextBoxColumn";
-            authorIDDataGridViewTextBoxColumn.Width = 125;
+            PublisherPhoneUpdateBtn.Location = new Point(610, 443);
+            PublisherPhoneUpdateBtn.Name = "PublisherPhoneUpdateBtn";
+            PublisherPhoneUpdateBtn.Size = new Size(281, 52);
+            PublisherPhoneUpdateBtn.TabIndex = 6;
+            PublisherPhoneUpdateBtn.Text = "Update";
+            PublisherPhoneUpdateBtn.UseVisualStyleBackColor = true;
+            PublisherPhoneUpdateBtn.Click += PublisherPhoneUpdateBtn_Click;
             // 
-            // dataGridViewTextBoxColumn9
+            // PublisherPhoneAddBtn
             // 
-            dataGridViewTextBoxColumn9.DataPropertyName = "ISBN";
-            dataGridViewTextBoxColumn9.HeaderText = "ISBN";
-            dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            dataGridViewTextBoxColumn9.Width = 125;
+            PublisherPhoneAddBtn.Location = new Point(610, 378);
+            PublisherPhoneAddBtn.Name = "PublisherPhoneAddBtn";
+            PublisherPhoneAddBtn.Size = new Size(281, 52);
+            PublisherPhoneAddBtn.TabIndex = 5;
+            PublisherPhoneAddBtn.Text = "Add";
+            PublisherPhoneAddBtn.UseVisualStyleBackColor = true;
+            PublisherPhoneAddBtn.Click += PublisherPhoneAddBtn_Click;
+            // 
+            // label33
+            // 
+            label33.AutoSize = true;
+            label33.Location = new Point(582, 218);
+            label33.Name = "label33";
+            label33.Size = new Size(50, 20);
+            label33.TabIndex = 4;
+            label33.Text = "Phone";
+            // 
+            // label32
+            // 
+            label32.AutoSize = true;
+            label32.Location = new Point(582, 96);
+            label32.Name = "label32";
+            label32.Size = new Size(22, 20);
+            label32.TabIndex = 3;
+            label32.Text = "Id";
+            // 
+            // PublisherPhoneTb
+            // 
+            PublisherPhoneTb.Location = new Point(676, 215);
+            PublisherPhoneTb.Name = "PublisherPhoneTb";
+            PublisherPhoneTb.Size = new Size(256, 27);
+            PublisherPhoneTb.TabIndex = 2;
+            // 
+            // PublisherPhoneIdTb
+            // 
+            PublisherPhoneIdTb.Location = new Point(676, 93);
+            PublisherPhoneIdTb.Name = "PublisherPhoneIdTb";
+            PublisherPhoneIdTb.Size = new Size(256, 27);
+            PublisherPhoneIdTb.TabIndex = 1;
+            // 
+            // DataGridPublisherPhone
+            // 
+            DataGridPublisherPhone.AutoGenerateColumns = false;
+            DataGridPublisherPhone.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataGridPublisherPhone.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn11, dataGridViewTextBoxColumn12 });
+            DataGridPublisherPhone.DataSource = phonePublisherBindingSource;
+            DataGridPublisherPhone.Dock = DockStyle.Left;
+            DataGridPublisherPhone.Location = new Point(0, 0);
+            DataGridPublisherPhone.Name = "DataGridPublisherPhone";
+            DataGridPublisherPhone.RowHeadersWidth = 51;
+            DataGridPublisherPhone.Size = new Size(359, 650);
+            DataGridPublisherPhone.TabIndex = 0;
+            DataGridPublisherPhone.SelectionChanged += DataGridPublisherPhone_SelectionChanged;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            dataGridViewTextBoxColumn11.DataPropertyName = "PubId";
+            dataGridViewTextBoxColumn11.HeaderText = "Publisher Id";
+            dataGridViewTextBoxColumn11.MinimumWidth = 6;
+            dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            dataGridViewTextBoxColumn11.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            dataGridViewTextBoxColumn12.DataPropertyName = "PhoneNumber";
+            dataGridViewTextBoxColumn12.HeaderText = "Phone";
+            dataGridViewTextBoxColumn12.MinimumWidth = 6;
+            dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            dataGridViewTextBoxColumn12.Width = 180;
+            // 
+            // phonePublisherBindingSource
+            // 
+            phonePublisherBindingSource.DataSource = typeof(Entities.PhonePublisher);
+            // 
+            // brrIdDataGridViewTextBoxColumn1
+            // 
+            brrIdDataGridViewTextBoxColumn1.DataPropertyName = "BrrId";
+            brrIdDataGridViewTextBoxColumn1.HeaderText = "Borrower Id";
+            brrIdDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            brrIdDataGridViewTextBoxColumn1.Name = "brrIdDataGridViewTextBoxColumn1";
+            brrIdDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // brrPhoneDataGridViewTextBoxColumn
+            // 
+            brrPhoneDataGridViewTextBoxColumn.DataPropertyName = "BrrPhone";
+            brrPhoneDataGridViewTextBoxColumn.HeaderText = "Phone";
+            brrPhoneDataGridViewTextBoxColumn.MinimumWidth = 6;
+            brrPhoneDataGridViewTextBoxColumn.Name = "brrPhoneDataGridViewTextBoxColumn";
+            brrPhoneDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // brrIdDataGridViewTextBoxColumn
+            // 
+            brrIdDataGridViewTextBoxColumn.DataPropertyName = "BrrId";
+            brrIdDataGridViewTextBoxColumn.HeaderText = "BrrId";
+            brrIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            brrIdDataGridViewTextBoxColumn.Name = "brrIdDataGridViewTextBoxColumn";
+            brrIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // brrNameDataGridViewTextBoxColumn
+            // 
+            brrNameDataGridViewTextBoxColumn.DataPropertyName = "BrrName";
+            brrNameDataGridViewTextBoxColumn.HeaderText = "BrrName";
+            brrNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            brrNameDataGridViewTextBoxColumn.Name = "brrNameDataGridViewTextBoxColumn";
+            brrNameDataGridViewTextBoxColumn.Width = 170;
+            // 
+            // brrAddressDataGridViewTextBoxColumn
+            // 
+            brrAddressDataGridViewTextBoxColumn.DataPropertyName = "BrrAddress";
+            brrAddressDataGridViewTextBoxColumn.HeaderText = "BrrAddress";
+            brrAddressDataGridViewTextBoxColumn.MinimumWidth = 6;
+            brrAddressDataGridViewTextBoxColumn.Name = "brrAddressDataGridViewTextBoxColumn";
+            brrAddressDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // auIdDataGridViewTextBoxColumn
+            // 
+            auIdDataGridViewTextBoxColumn.DataPropertyName = "AuId";
+            auIdDataGridViewTextBoxColumn.HeaderText = "AuId";
+            auIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            auIdDataGridViewTextBoxColumn.Name = "auIdDataGridViewTextBoxColumn";
+            auIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            firstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            firstNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // midNameDataGridViewTextBoxColumn
+            // 
+            midNameDataGridViewTextBoxColumn.DataPropertyName = "MidName";
+            midNameDataGridViewTextBoxColumn.HeaderText = "MidName";
+            midNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            midNameDataGridViewTextBoxColumn.Name = "midNameDataGridViewTextBoxColumn";
+            midNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            lastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            lastNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.DataPropertyName = "Isbn";
+            dataGridViewTextBoxColumn1.HeaderText = "Isbn";
+            dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.DataPropertyName = "Title";
+            dataGridViewTextBoxColumn2.HeaderText = "Title";
+            dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.Width = 160;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.DataPropertyName = "Edition";
+            dataGridViewTextBoxColumn3.HeaderText = "Edition";
+            dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewTextBoxColumn4.DataPropertyName = "YearOfPublication";
+            dataGridViewTextBoxColumn4.HeaderText = "YearOfPublication";
+            dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            dataGridViewTextBoxColumn5.DataPropertyName = "Price";
+            dataGridViewTextBoxColumn5.HeaderText = "Price";
+            dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            dataGridViewTextBoxColumn5.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            dataGridViewTextBoxColumn6.DataPropertyName = "CatId";
+            dataGridViewTextBoxColumn6.HeaderText = "CatId";
+            dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            dataGridViewTextBoxColumn6.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            dataGridViewTextBoxColumn7.DataPropertyName = "PubId";
+            dataGridViewTextBoxColumn7.HeaderText = "PubId";
+            dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            dataGridViewTextBoxColumn7.Width = 80;
             // 
             // Form1
             // 
@@ -1410,6 +1764,7 @@
             tabPage4.ResumeLayout(false);
             tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DataGridAuthorities).EndInit();
+            ((System.ComponentModel.ISupportInitialize)authoritiesBindingSource).EndInit();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
@@ -1430,7 +1785,18 @@
             tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DataGridCopies).EndInit();
             ((System.ComponentModel.ISupportInitialize)copyBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)authoritiesBindingSource).EndInit();
+            tabPage8.ResumeLayout(false);
+            tabPage8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)DataGridCategory).EndInit();
+            ((System.ComponentModel.ISupportInitialize)categoryBindingSource).EndInit();
+            tabPage9.ResumeLayout(false);
+            tabPage9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)DataGridBorrowersPhone).EndInit();
+            ((System.ComponentModel.ISupportInitialize)phoneBorrowerBindingSource).EndInit();
+            tabPage10.ResumeLayout(false);
+            tabPage10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)DataGridPublisherPhone).EndInit();
+            ((System.ComponentModel.ISupportInitialize)phonePublisherBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -1524,28 +1890,11 @@
         private Label label21;
         private Label label20;
         private Label label19;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private BindingSource bookBindingSource;
         private TabPage tabPage4;
         private DataGridView DataGridAuthorities;
-        private DataGridViewTextBoxColumn auIdDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn midNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private BindingSource authorBindingSource;
-        private DataGridViewTextBoxColumn brrIdDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn brrNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn brrAddressDataGridViewTextBoxColumn;
         private BindingSource borrowerBindingSource;
-        private DataGridViewTextBoxColumn pubIdDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn pubNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn pubAddressDataGridViewTextBoxColumn;
         private BindingSource publisherBindingSource;
         private DataGridViewTextBoxColumn borrowIdDataGridViewTextBoxColumn;
         private Label label23;
@@ -1583,5 +1932,55 @@
         private DataGridViewTextBoxColumn authorIDDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private BindingSource authoritiesBindingSource;
+        private DataGridView DataGridCategory;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn catNameDataGridViewTextBoxColumn;
+        private BindingSource categoryBindingSource;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn pubNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn pubAddressDataGridViewTextBoxColumn;
+        private Button CategoryAddBtn;
+        private Label label26;
+        private Button CategoryRemoveBtn;
+        private Button CategoryUpdateBtn;
+        private Label label29;
+        private TextBox CategoryNameTb;
+        private TextBox CategoryIdTb;
+        private DataGridView DataGridBorrowersPhone;
+        private BindingSource phoneBorrowerBindingSource;
+        private Button BorrowerPhoneAddBtn;
+        private TextBox BorrowerPhoneTb;
+        private TextBox BorrowerPhoneIdTb;
+        private Button BorrowerPhoneRemoveBtn;
+        private Button BorrowerPhoneUpdateBtn;
+        private Label label31;
+        private Label label30;
+        private TextBox PublisherPhoneTb;
+        private TextBox PublisherPhoneIdTb;
+        private DataGridView DataGridPublisherPhone;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private BindingSource phonePublisherBindingSource;
+        private Button PublisherPhoneRemoveBtn;
+        private Button PublisherPhoneUpdateBtn;
+        private Button PublisherPhoneAddBtn;
+        private Label label33;
+        private Label label32;
+        private DataGridViewTextBoxColumn brrIdDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn brrPhoneDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn auIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn midNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn brrIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn brrNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn brrAddressDataGridViewTextBoxColumn;
     }
 }
