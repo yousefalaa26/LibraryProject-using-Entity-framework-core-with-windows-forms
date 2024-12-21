@@ -49,6 +49,13 @@
             BookTitleTb = new TextBox();
             BookISBNTb = new TextBox();
             DataGridBooks = new DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
             bookBindingSource = new BindingSource(components);
             tabPage4 = new TabPage();
             AuthoritiesRemoveBtn = new Button();
@@ -75,6 +82,10 @@
             AuthorFirstTb = new TextBox();
             AuthorIdTb = new TextBox();
             dataGridView2 = new DataGridView();
+            auIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            midNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             authorBindingSource = new BindingSource(components);
             tabPage3 = new TabPage();
             BorrowereRemoveBtn = new Button();
@@ -87,6 +98,9 @@
             BorrowerNameTb = new TextBox();
             BorrowerIdTb = new TextBox();
             dataGridView3 = new DataGridView();
+            brrIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            brrNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            brrAddressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             borrowerBindingSource = new BindingSource(components);
             tabPage7 = new TabPage();
             PublisherRemoveBtn = new Button();
@@ -163,6 +177,8 @@
             BorrowerPhoneTb = new TextBox();
             BorrowerPhoneIdTb = new TextBox();
             DataGridBorrowersPhone = new DataGridView();
+            brrIdDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            brrPhoneDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             phoneBorrowerBindingSource = new BindingSource(components);
             tabPage10 = new TabPage();
             PublisherPhoneRemoveBtn = new Button();
@@ -176,22 +192,10 @@
             dataGridViewTextBoxColumn11 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn12 = new DataGridViewTextBoxColumn();
             phonePublisherBindingSource = new BindingSource(components);
-            brrIdDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            brrPhoneDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            brrIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            brrNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            brrAddressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            auIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            midNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
+            tabPage11 = new TabPage();
+            searchBtn = new Button();
+            searchTb = new TextBox();
+            label34 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DataGridBooks).BeginInit();
@@ -223,10 +227,12 @@
             tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DataGridPublisherPhone).BeginInit();
             ((System.ComponentModel.ISupportInitialize)phonePublisherBindingSource).BeginInit();
+            tabPage11.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
             // 
+            tabControl1.Controls.Add(tabPage11);
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage4);
             tabControl1.Controls.Add(tabPage2);
@@ -428,6 +434,62 @@
             DataGridBooks.Size = new Size(833, 644);
             DataGridBooks.TabIndex = 0;
             DataGridBooks.SelectionChanged += dataGridView1_SelectionChanged;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.DataPropertyName = "Isbn";
+            dataGridViewTextBoxColumn1.HeaderText = "Isbn";
+            dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.DataPropertyName = "Title";
+            dataGridViewTextBoxColumn2.HeaderText = "Title";
+            dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.Width = 160;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.DataPropertyName = "Edition";
+            dataGridViewTextBoxColumn3.HeaderText = "Edition";
+            dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewTextBoxColumn4.DataPropertyName = "YearOfPublication";
+            dataGridViewTextBoxColumn4.HeaderText = "YearOfPublication";
+            dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            dataGridViewTextBoxColumn5.DataPropertyName = "Price";
+            dataGridViewTextBoxColumn5.HeaderText = "Price";
+            dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            dataGridViewTextBoxColumn5.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            dataGridViewTextBoxColumn6.DataPropertyName = "CatId";
+            dataGridViewTextBoxColumn6.HeaderText = "CatId";
+            dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            dataGridViewTextBoxColumn6.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            dataGridViewTextBoxColumn7.DataPropertyName = "PubId";
+            dataGridViewTextBoxColumn7.HeaderText = "PubId";
+            dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            dataGridViewTextBoxColumn7.Width = 80;
             // 
             // bookBindingSource
             // 
@@ -676,6 +738,38 @@
             dataGridView2.TabIndex = 0;
             dataGridView2.SelectionChanged += dataGridView2_SelectionChanged;
             // 
+            // auIdDataGridViewTextBoxColumn
+            // 
+            auIdDataGridViewTextBoxColumn.DataPropertyName = "AuId";
+            auIdDataGridViewTextBoxColumn.HeaderText = "AuId";
+            auIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            auIdDataGridViewTextBoxColumn.Name = "auIdDataGridViewTextBoxColumn";
+            auIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            firstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            firstNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // midNameDataGridViewTextBoxColumn
+            // 
+            midNameDataGridViewTextBoxColumn.DataPropertyName = "MidName";
+            midNameDataGridViewTextBoxColumn.HeaderText = "MidName";
+            midNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            midNameDataGridViewTextBoxColumn.Name = "midNameDataGridViewTextBoxColumn";
+            midNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            lastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            lastNameDataGridViewTextBoxColumn.Width = 150;
+            // 
             // authorBindingSource
             // 
             authorBindingSource.DataSource = typeof(Entities.Author);
@@ -791,6 +885,30 @@
             dataGridView3.Size = new Size(529, 644);
             dataGridView3.TabIndex = 0;
             dataGridView3.SelectionChanged += dataGridView3_SelectionChanged;
+            // 
+            // brrIdDataGridViewTextBoxColumn
+            // 
+            brrIdDataGridViewTextBoxColumn.DataPropertyName = "BrrId";
+            brrIdDataGridViewTextBoxColumn.HeaderText = "BrrId";
+            brrIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            brrIdDataGridViewTextBoxColumn.Name = "brrIdDataGridViewTextBoxColumn";
+            brrIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // brrNameDataGridViewTextBoxColumn
+            // 
+            brrNameDataGridViewTextBoxColumn.DataPropertyName = "BrrName";
+            brrNameDataGridViewTextBoxColumn.HeaderText = "BrrName";
+            brrNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            brrNameDataGridViewTextBoxColumn.Name = "brrNameDataGridViewTextBoxColumn";
+            brrNameDataGridViewTextBoxColumn.Width = 170;
+            // 
+            // brrAddressDataGridViewTextBoxColumn
+            // 
+            brrAddressDataGridViewTextBoxColumn.DataPropertyName = "BrrAddress";
+            brrAddressDataGridViewTextBoxColumn.HeaderText = "BrrAddress";
+            brrAddressDataGridViewTextBoxColumn.MinimumWidth = 6;
+            brrAddressDataGridViewTextBoxColumn.Name = "brrAddressDataGridViewTextBoxColumn";
+            brrAddressDataGridViewTextBoxColumn.Width = 180;
             // 
             // borrowerBindingSource
             // 
@@ -1501,6 +1619,22 @@
             DataGridBorrowersPhone.TabIndex = 0;
             DataGridBorrowersPhone.SelectionChanged += DataGridBorrowersPhone_SelectionChanged;
             // 
+            // brrIdDataGridViewTextBoxColumn1
+            // 
+            brrIdDataGridViewTextBoxColumn1.DataPropertyName = "BrrId";
+            brrIdDataGridViewTextBoxColumn1.HeaderText = "Borrower Id";
+            brrIdDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            brrIdDataGridViewTextBoxColumn1.Name = "brrIdDataGridViewTextBoxColumn1";
+            brrIdDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // brrPhoneDataGridViewTextBoxColumn
+            // 
+            brrPhoneDataGridViewTextBoxColumn.DataPropertyName = "BrrPhone";
+            brrPhoneDataGridViewTextBoxColumn.HeaderText = "Phone";
+            brrPhoneDataGridViewTextBoxColumn.MinimumWidth = 6;
+            brrPhoneDataGridViewTextBoxColumn.Name = "brrPhoneDataGridViewTextBoxColumn";
+            brrPhoneDataGridViewTextBoxColumn.Width = 180;
+            // 
             // phoneBorrowerBindingSource
             // 
             phoneBorrowerBindingSource.DataSource = typeof(Entities.PhoneBorrower);
@@ -1618,133 +1752,44 @@
             // 
             phonePublisherBindingSource.DataSource = typeof(Entities.PhonePublisher);
             // 
-            // brrIdDataGridViewTextBoxColumn1
+            // tabPage11
             // 
-            brrIdDataGridViewTextBoxColumn1.DataPropertyName = "BrrId";
-            brrIdDataGridViewTextBoxColumn1.HeaderText = "Borrower Id";
-            brrIdDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            brrIdDataGridViewTextBoxColumn1.Name = "brrIdDataGridViewTextBoxColumn1";
-            brrIdDataGridViewTextBoxColumn1.Width = 125;
+            tabPage11.Controls.Add(label34);
+            tabPage11.Controls.Add(searchBtn);
+            tabPage11.Controls.Add(searchTb);
+            tabPage11.Location = new Point(4, 29);
+            tabPage11.Name = "tabPage11";
+            tabPage11.Padding = new Padding(3);
+            tabPage11.Size = new Size(1154, 650);
+            tabPage11.TabIndex = 11;
+            tabPage11.Text = "search";
+            tabPage11.UseVisualStyleBackColor = true;
             // 
-            // brrPhoneDataGridViewTextBoxColumn
+            // searchBtn
             // 
-            brrPhoneDataGridViewTextBoxColumn.DataPropertyName = "BrrPhone";
-            brrPhoneDataGridViewTextBoxColumn.HeaderText = "Phone";
-            brrPhoneDataGridViewTextBoxColumn.MinimumWidth = 6;
-            brrPhoneDataGridViewTextBoxColumn.Name = "brrPhoneDataGridViewTextBoxColumn";
-            brrPhoneDataGridViewTextBoxColumn.Width = 180;
+            searchBtn.Location = new Point(478, 219);
+            searchBtn.Name = "searchBtn";
+            searchBtn.Size = new Size(185, 52);
+            searchBtn.TabIndex = 1;
+            searchBtn.Text = "Search";
+            searchBtn.UseVisualStyleBackColor = true;
+            searchBtn.Click += searchBtn_Click;
             // 
-            // brrIdDataGridViewTextBoxColumn
+            // searchTb
             // 
-            brrIdDataGridViewTextBoxColumn.DataPropertyName = "BrrId";
-            brrIdDataGridViewTextBoxColumn.HeaderText = "BrrId";
-            brrIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            brrIdDataGridViewTextBoxColumn.Name = "brrIdDataGridViewTextBoxColumn";
-            brrIdDataGridViewTextBoxColumn.Width = 125;
+            searchTb.Location = new Point(454, 115);
+            searchTb.Name = "searchTb";
+            searchTb.Size = new Size(266, 27);
+            searchTb.TabIndex = 0;
             // 
-            // brrNameDataGridViewTextBoxColumn
+            // label34
             // 
-            brrNameDataGridViewTextBoxColumn.DataPropertyName = "BrrName";
-            brrNameDataGridViewTextBoxColumn.HeaderText = "BrrName";
-            brrNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            brrNameDataGridViewTextBoxColumn.Name = "brrNameDataGridViewTextBoxColumn";
-            brrNameDataGridViewTextBoxColumn.Width = 170;
-            // 
-            // brrAddressDataGridViewTextBoxColumn
-            // 
-            brrAddressDataGridViewTextBoxColumn.DataPropertyName = "BrrAddress";
-            brrAddressDataGridViewTextBoxColumn.HeaderText = "BrrAddress";
-            brrAddressDataGridViewTextBoxColumn.MinimumWidth = 6;
-            brrAddressDataGridViewTextBoxColumn.Name = "brrAddressDataGridViewTextBoxColumn";
-            brrAddressDataGridViewTextBoxColumn.Width = 180;
-            // 
-            // auIdDataGridViewTextBoxColumn
-            // 
-            auIdDataGridViewTextBoxColumn.DataPropertyName = "AuId";
-            auIdDataGridViewTextBoxColumn.HeaderText = "AuId";
-            auIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            auIdDataGridViewTextBoxColumn.Name = "auIdDataGridViewTextBoxColumn";
-            auIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            firstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            firstNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // midNameDataGridViewTextBoxColumn
-            // 
-            midNameDataGridViewTextBoxColumn.DataPropertyName = "MidName";
-            midNameDataGridViewTextBoxColumn.HeaderText = "MidName";
-            midNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            midNameDataGridViewTextBoxColumn.Name = "midNameDataGridViewTextBoxColumn";
-            midNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            lastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            lastNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "Isbn";
-            dataGridViewTextBoxColumn1.HeaderText = "Isbn";
-            dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.DataPropertyName = "Title";
-            dataGridViewTextBoxColumn2.HeaderText = "Title";
-            dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.Width = 160;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.DataPropertyName = "Edition";
-            dataGridViewTextBoxColumn3.HeaderText = "Edition";
-            dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewTextBoxColumn4.DataPropertyName = "YearOfPublication";
-            dataGridViewTextBoxColumn4.HeaderText = "YearOfPublication";
-            dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            dataGridViewTextBoxColumn4.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            dataGridViewTextBoxColumn5.DataPropertyName = "Price";
-            dataGridViewTextBoxColumn5.HeaderText = "Price";
-            dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            dataGridViewTextBoxColumn5.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            dataGridViewTextBoxColumn6.DataPropertyName = "CatId";
-            dataGridViewTextBoxColumn6.HeaderText = "CatId";
-            dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            dataGridViewTextBoxColumn6.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            dataGridViewTextBoxColumn7.DataPropertyName = "PubId";
-            dataGridViewTextBoxColumn7.HeaderText = "PubId";
-            dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            dataGridViewTextBoxColumn7.Width = 80;
+            label34.AutoSize = true;
+            label34.Location = new Point(324, 118);
+            label34.Name = "label34";
+            label34.Size = new Size(60, 20);
+            label34.TabIndex = 2;
+            label34.Text = "Enter Id";
             // 
             // Form1
             // 
@@ -1797,6 +1842,8 @@
             tabPage10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DataGridPublisherPhone).EndInit();
             ((System.ComponentModel.ISupportInitialize)phonePublisherBindingSource).EndInit();
+            tabPage11.ResumeLayout(false);
+            tabPage11.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1982,5 +2029,9 @@
         private DataGridViewTextBoxColumn brrIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn brrNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn brrAddressDataGridViewTextBoxColumn;
+        private TabPage tabPage11;
+        private TextBox searchTb;
+        private Button searchBtn;
+        private Label label34;
     }
 }

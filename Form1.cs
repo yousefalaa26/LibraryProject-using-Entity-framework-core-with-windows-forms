@@ -645,7 +645,7 @@ namespace LibraryProject
         //---------------------------------------Category--------------------------------------//
         private void DataGridCategory_SelectionChanged(object sender, EventArgs e)
         {
-            
+
             var category = context.Categories
                 .SingleOrDefault(x => x.CatId == (int)DataGridCategory.CurrentRow.Cells[0].Value);
 
@@ -855,6 +855,40 @@ namespace LibraryProject
             {
                 MessageBox.Show("Error Removing publisher phone: " + ex.Message);
             }
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            var borrowerWithBooks = from b in context.Borrowers join br in context.Borrows
+                on b.BrrId equals br.BorrowerId 
+                join c in context.Copies on br.CopyId equals c.CopyId 
+                join bk in context.Books on c.Isbn equals bk.Isbn 
+                join cat in context.Categories on bk.CatId equals cat.CatId 
+                join auth in context.Authorities on bk.Isbn equals auth.ISBN
+                join a in context.Authors on auth.Author_ID equals a.AuId
+                where b.BrrId == int.Parse(searchTb.Text) select new
+                {
+                    BorrowerName = b.BrrName, BorrowerAddress = b.BrrAddress,
+                    RentDate = br.BorrowingDate, ReturnDate = br.ReturnDate,
+                    book = bk.Title , category = cat.CatName,
+                    author = $"{a.FirstName} {a.LastName}"
+                    
+                };
+
+            string message="Borrower information: ";
+
+            foreach (var item in borrowerWithBooks)
+            {
+                message += $"\nBorrower: {item.BorrowerName}"; message += $"\nAddress: {item.BorrowerAddress}";
+                message += $"\nRented book: {item.book} by {item.author}"; message += $"\nCategory: {item.category}";
+                message += $"\nFrom: {item.RentDate} To: {item.ReturnDate}";
+            }
+
+            if (message == "Borrower information: ")
+                message = "Customer have not rented a book";
+
+            MessageBox.Show(message, "Borrower Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
     }
 }
